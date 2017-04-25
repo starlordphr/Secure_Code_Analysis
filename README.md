@@ -5,7 +5,7 @@ Mini Project for CS230 (Spring 17) UCLA.
 To implement a plugin for statically checking if a program has followed secure coding techniques.
 
 # Methodology:
-Input: Source Code (Java)
+Input: Source Code (Java)\n
 Output: Secure Coding Warnings
 We will use Google's Error-Prone tool for creating our own secure checker. We will be using selected secure coding practices from "CERT Java Secure Coding.pdf" for our project.
 
