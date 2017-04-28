@@ -1,0 +1,21 @@
+    Property                                                  Tally
+    ========                                                 =======
+1.  Don't depend on Intialization                               1
+2.  Limit Access to Classes, Methods, and Variables             2           
+3.  Make everything final                                       1
+4.  Don't depend on package scope                               2
+5.  Do not use nested classes                                   1
+6.  Avoid signing your code                                     1
+7.  If need signing, sign code as an archive file               1
+8.  Make classes un-cloneable                                   1
+9.  Make classes unserializable                                 2
+10. Make classes undeserializable                               2
+11. Don't compare classes by name                               1
+12. !Security through obscurity (!store secrets)                2
+13. Always validate user input                                  1
+14. Always authenticate                                         1
+16. Fail securely                                               1
+17. Principle Least Privilege                                   1
+18. Exception handling should be appropriate                    1
+19. Use strong cryptography                                     1
+20. Random number generation should be nondeterministic         1
