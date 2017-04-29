@@ -17,5 +17,21 @@
 16. Fail securely                                               1
 17. Principle Least Privilege                                   1
 18. Exception handling should be appropriate                    1
-19. Use strong cryptography                                     1
-20. Random number generation should be nondeterministic         1
+19. Use strong cryptography                                     2
+20. Random number generation should be nondeterministic         2
+
+
+21. Sanitize untrusted data passed across a trust boundary
+    : SQL Injection						1
+22. Normalize string before validating them.			1
+23. Do not pass untrusted unsanitized data to the 
+    Runtime.exec() method					1
+24. Do not ignore values returned by methods.			1
+25. Prevent integer overflow					1
+26. Validate method arguments: To check if the variable
+    passed to a function is NULL or not				1
+27. Do not catch NullPointerException				1
+28. Use an int to capture the return value of methods
+    that read a character or byte				1
+29. Perform proper cleanup at program termination		1
+30. Write SecurityException using java.util.logging		1
