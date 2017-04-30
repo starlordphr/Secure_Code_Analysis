@@ -1,0 +1,60 @@
+***Guide to get Error Prone working as a javac replacement on Windows 10***
+
+
+1) Have Java 8 SDK installed -  to check if it's working from cmd type:
+
+	javac -version
+
+If it's not working or installed this guide is helpful:
+
+	https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html
+
+	
+
+2) Download file from:
+
+	https://repo1.maven.org/maven2/com/google/errorprone/error_prone_ant/2.0.19/error_prone_ant-2.0.19.jar
+
+	
+
+3) Keep the "error_prone_ant-2.0.19" file in the folder that you will be working in (where all your .java files are)
+	Tip: to open a cmd window in a folder use shift+right click -> open command window here
+
+
+
+4) Compile java files using Error Prone with the command:
+
+	java -Xbootclasspath/p:error_prone_ant-2.0.19.jar com.google.errorprone.ErrorProneCompiler "FileName.java"
+
+
+	
+5) Test if it works - I used the example given on the Error Prone github main page:
+
+Create java file named ShortSet.java
+
+Copy this code into it:
+
+import java.util.*;
+public class ShortSet {
+  public static void main (String[] args) {
+    Set<Short> s = new HashSet<>();
+    for (short i = 0; i < 100; i++) {
+      s.add(i);
+      s.remove(i - 1);
+    }
+    System.out.println(s.size());
+  }
+}
+
+From cmd run with the following line:
+
+		java -Xbootclasspath/p:error_prone_ant-2.0.19.jar com.google.errorprone.ErrorProneCompiler ShortSet.java
+
+Output should look like:
+
+		ShortSet.java:7: error: [CollectionIncompatibleType] Argument 'i - 1' should not be passed to this method; its type int is not compatible with its collection's type argument Short
+			  s.remove(i - 1);
+					  ^
+			(see http://errorprone.info/bugpattern/CollectionIncompatibleType)
+		1 error
+
