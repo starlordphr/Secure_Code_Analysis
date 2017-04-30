@@ -1,0 +1,107 @@
+CONTENTS
+=========
+   I.   PREREQUISITES
+   II.  INSTALLING JDK 1.8
+   III. INSTALLING BAZEL
+   IV.  USING BAZEL SETUP
+   V.   TESTING ERROR PRONE
+
+I. PREREQUISITES
+=================
+   
+   Currently Bazel is stable only on Ubuntu (Linux) and macOS (OS X). Windows is still highly experimental.Instructions for your respective system can be found on: https://bazel.build/versions/master/docs/install.html
+   The following instructions are only applicable for Ubuntu (Linux)
+
+II. INSTALLING JDK 1.8
+=======================
+
+    1. Verify you have Java 8 (or later than 7) installed using the command "java -version". Skip 
+       this section if you do have 7 or later. Preferred and recommended in Java 8.
+
+    2. Open your Terminal
+
+    3. Install OpenJDK 8: "sudo apt-get install openjdk-8-jdk"
+
+    4. Install the rest of the required packages: 
+       "sudo apt-get install pkg-config zip g++ zlib1g-dev unzip"
+
+III. INSTALLING BAZEL
+======================
+
+    1. Add Bazel distribution URI as a package source:
+       "echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list"
+
+    2. Check if cURL is installed for your machine: "curl -V". If yes, skip 3.
+
+    3. cURL Install: "sudo apt-get install curl"
+
+    4. Finish installing the Bazel distribution URI: 
+       "curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -"
+
+    5. Install starting version of Bazel:
+       "sudo apt-get update && sudo apt-get install bazel"
+
+    6. Update to the latest version of Bazel:
+       "sudo apt-get upgrade bazel"
+
+    Note: You repeat step 6 and "sudo apt-get update bazel" when there is a new release.
+
+IV. USING BAZEL SETUP
+======================
+
+    1. Create a new directory that will be your workspace (it will contain all of your project 
+       files that you plan on running in Bazel later)
+
+    2. Create a new file named WORKSPACE . (yes in all caps, no extension, etc.) Leave it empty
+
+    3. Add your project into this workspace (should be in its own folder)
+
+    4. Navigate into your project and add a BUILD file if there isn't one. (BUILD has to be in all 
+       caps, no extension, etc.)
+
+    Notes:
+         BUILD will contain what to build/run for your project. Additional plugins (like custom    
+         error prone exceptions) will also need additional lines here. An example can be found in 
+         V. Testing Error Prone. 
+
+    5. To now run your project, in Terminal, navigate into your project and type "bazel 
+       build :projectname"
+
+V. TESTING ERROR PRONE
+
+    1. In your workspace folder, create a empty directory folder.
+
+    2. In the empty directory folder, create the empty BUILD file.
+
+    3. Create a new java file called "ShortSet.java" and copy paste the following:
+
+       import java.util.*;
+       import java.lang.Short;
+
+       public class ShortSet {
+         public static void main (String[] args) {
+         Set<Short> s = new HashSet<>();
+         for (short i = 0; i < 100; i++) {
+           s.add(i);
+           s.remove(i - 1);
+          }
+          System.out.println(s.size());
+         }
+       }
+
+    4. Save and go back to your BUILD file and copy paste the below:
+
+       java_library(
+          name = "ShortSet",
+          srcs = ["ShortSet.java"],
+       )
+
+    5. Save and build the project with "bazel build :ShortSet". You should get the error:
+
+       YourProjectFolder/ShortSet.java:12: error: [CollectionIncompatibleType] Argument 'i - 1'    
+       should not be passed to this method; its type int is not compatible with its collection's 
+       type argument Short
+          s.remove(i - 1);
+                  ^
+       (see http://errorprone.info/bugpattern/CollectionIncompatibleType)
+
