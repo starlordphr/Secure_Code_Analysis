@@ -1,0 +1,11 @@
+Just in case I put findbug eclipse plugin.
+
+home page:
+http://marketplace.eclipse.org/content/findbugs-eclipse-plugin#group-details
+
+In eclipse market under help menu, drag and drop the install button.
+
+This is tutorial youtube:
+https://www.youtube.com/watch?v=jflQSFhYTEo&feature=youtu.be&hd=1
+
+Right click on package and click findbug below import.
