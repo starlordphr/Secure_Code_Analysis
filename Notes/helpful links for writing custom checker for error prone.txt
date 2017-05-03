@@ -1,0 +1,6 @@
+For develpers,
+Setting environment link:
+https://github.com/google/error-prone/wiki/For-Developers
+
+Writing checker tutorial link:
+https://github.com/google/error-prone/wiki/Writing-a-check
