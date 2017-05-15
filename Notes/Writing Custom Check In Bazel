@@ -20,3 +20,6 @@ for an in-depth tutorial: http://errorprone.info/docs/plugins
 3. Build Bazel and it should now run your custom check against the source code in the project file
 
 Note: To disable a check, just delete the corresponding java plug in line from the BUILD file.
+
+Good Example:
+https://github.com/google/error-prone/blob/master/examples/plugin/bazel/java/com/google/errorprone/sample/MyCustomCheck.java
