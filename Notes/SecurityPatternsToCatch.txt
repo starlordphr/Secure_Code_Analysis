@@ -1,0 +1,181 @@
+Static Patterns to Look For:
+============================
+
+1. Untrusted unsanitized data to Runtime.exec() method
+-------------------------------------------------------
+// Do not pass untrusted unsanitized data to the Runtime.exec() method
+Reference page: CERT Java Secure Coding pg. 50
+
+Main Idea:
+~~~~~~~~~~
+When using Runtime.exec() verify that any paramaters being passed into it are first validated.
+If not, someone can name their variable value (e.g. bad directory name) to be a command script
+
+Example from Book:
+++++++++++++++++++
+Bad: retrieved directory name not validated and appended to executing command string to the
+     Runtime.exec() method.
+Good: have a pattern match on the directory name to ensure it does end not have strange symbols
+    like & and quotes
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- Find instances of Runtime (e.g. Runtime rt = Runtime.getRuntime())
+- Ensure if there are parameters being fed into rt.exec() they are checked beforehand via
+  if statement
+- Otherwise ensure that the parameters were selective user choice (as in static strings determined
+  by the code via user choice)
+- Suggested solutions: Check parameters (via if statement), Build string via switch statement
+  Avoid using Runtime.exec()
+
+
+2. Ignored values returned by some selected methods
+----------------------------------------------------
+// Do not ignore values returned by some selected methods (Related to evaluation projects)
+Reference page:
+
+Main Idea:
+~~~~~~~~~~
+
+
+Example from Book:
+++++++++++++++++++
+Bad:
+Good:
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- ...
+- Suggested solution: 
+
+
+3. NullPointerException Caught
+------------------------------------
+// Do not catch NullPointerException
+Reference page:
+
+Main Idea:
+~~~~~~~~~~
+
+
+Example from Book:
+++++++++++++++++++
+Bad:
+Good:
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- ...
+- Suggested solution: 
+
+
+4. Capture the Return Value via Int
+----------------------------------------------------------------------------
+// Use an int to capture the return value of methods that read a character or byte
+Reference page:
+
+Main Idea:
+~~~~~~~~~~
+
+
+Example from Book:
+++++++++++++++++++
+Bad:
+Good:
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- ...
+- Suggested solution: 
+
+
+5. Weak Encryption
+--------------------------
+// Use strong cryptography
+Reference page:
+
+Main Idea:
+~~~~~~~~~~
+
+
+Example from Book:
+++++++++++++++++++
+Bad:
+Good:
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- ...
+- Suggested solution: 
+
+
+6. Unsecure Fail!
+------------------
+// Fail Securely
+Reference page:
+
+Main Idea:
+~~~~~~~~~~
+
+
+Example from Book:
+++++++++++++++++++
+Bad:
+Good:
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- ...
+- Suggested solution: 
+
+
+7. Unsanitized untrusted data across trust boundary
+----------------------------------------------------
+// Sanitize untrusted data passed across a trust boundary : SQL Injection
+Reference Page: CERT Java Secure Coding.pdf pg 24
+
+Main Idea:
+~~~~~~~~~~
+Where there is a string construction of an SQL script (e.g. Select * from database where "username"...)
+check that there was validation of the parameters being given to the string beforehand.
+If the passed parameter wasn't valid in the first place, stop it from being used.
+
+Example from Book:
+++++++++++++++++++
+Bad: Username not checked => someone can put in a malicious script as username
+Good: Username checked for length boundary first (stops the super-long malicious script)
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- Look for SQL strings being passed & find their parameters.
+- Check if parameters were checked beforehand
+- Suggested solution: Use PreparedStatement to load basic string first. Then fill in the sanitized
+  fields later using setString();
+
+
+8. Integer Overflow
+-------------------
+// Integer Overflow
+Reference page: CERT Java Secure Coding pg. 106
+
+Main Idea:
+~~~~~~~~~~
+Ensure that numeric types used are within range. Java will secretly wrap these values which will
+result in some pretty strange errors. Primarily the operator takes in 2 numeric types and applies
+the operation which may result in overflow.
+Operations to check: +, - (sub), *, /, ++, --, +=, -=, *=, /=, -(negation)
+
+Example from Book:
+++++++++++++++++++
+Bad: int a + int b w/o checking and stuffing it into int c
+Good: check if int b smaller than (max value for int - int a) and int b is bigger than (min value
+      for int - int a)
+
+Overall Pattern:
++-+-+-+-+-+-+-+-+
+- Look for operations where numeric types are involved and one of the operations in list is being used
+- Look if there is verification on the integer or if value after operation guaranteed to fit result type
+- Otherwise, check if there was upcasting or BigInteger
+- Suggested solution: Precondition (check parameters), upcasting (perform operation on a bigger type),
+  BigInteger (do operation as BigIntegers such that BigInteger when forced into a smaller bucket than
+  needed, it will auto throw an exception)
