@@ -32,41 +32,51 @@ Overall Pattern:
 2. Ignored values returned by some selected methods
 ----------------------------------------------------
 // Do not ignore values returned by some selected methods (Related to evaluation projects)
-Reference page:
+Reference page: CERT Java Secure Coding pg. 86
 
 Main Idea:
 ~~~~~~~~~~
-
+If a method returns a boolean or some value to indicate that the method succeeded => have a condition
+on it to ensure that the operation did succeed. Don't ignore it!
 
 Example from Book:
 ++++++++++++++++++
-Bad:
-Good:
+Bad: File.delete() used but if deletion not successful => returns false but method didn't check
+Good: Check if File.delete() did succeed. If not, ensure that you have a control flow to handle it
 
 Overall Pattern:
 +-+-+-+-+-+-+-+-+
-- ...
-- Suggested solution: 
+- Look for method calls that are not being stored into a variable
+- Method being called does have a return value => warn aboout this!
+- Suggested solution: Have variable for the return value and write a condition block on it
 
 
 3. NullPointerException Caught
 ------------------------------------
 // Do not catch NullPointerException
-Reference page:
+Reference page: CERT Secure Java Coding pg. 294
 
 Main Idea:
 ~~~~~~~~~~
-
+NullPointerException should not be caught as a form of a null check. Instead have equals(NULL)
+or == null. You should also not catch the parents of NullPointerException since those are even
+more generic. If you catch it, attackers can trigger the "false" edge without having anything.
+(Control full Vulnerability)
+Other Exceptions to catch: Exception, RuntimeException, Throwable
+(basically too generic exceptions...) 
 
 Example from Book:
 ++++++++++++++++++
-Bad:
-Good:
+Bad: when checking if a string is empty, caught NullPointerException
+Good: have string.isEmpty() for control flow.
 
 Overall Pattern:
 +-+-+-+-+-+-+-+-+
-- ...
-- Suggested solution: 
+- Look for Try & Catch blocks
+- If in the Catch, Exception being thrown is NullPointerException, Exception, RuntimeException,
+  or Throwable.
+- Suggested solution: Have generic null or condition check. Otherwise, catch more specific
+  Exception
 
 
 4. Capture the Return Value via Int
