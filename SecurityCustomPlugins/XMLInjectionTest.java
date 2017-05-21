@@ -19,6 +19,32 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
+/*Sanitize Untrusted Data Check XML Test Cases
+    Issue stems from creating a string that does not validate that the parameters
+    being used in the XML string.
+    
+    Possible fixes:
+        Validate the input via conditioning (e.g. if else statement)
+        Validate against a static XML schema (defined by filename)
+    
+    XML Syntax overview: 
+    XML is in the same category as HTML where it can help build pages but it is also
+    used for database management as well. (especially information communicating from
+    an HTML page to an SQL database)
+    
+    XML has tags like <item> followed by the ending tag of </item>. XML also usually
+    has a schema (an XSD) which defines tags and their respective types.
+    
+    The threat here is where you can insert an invalid value for a variable (XML will
+    accept it if not validated against a schema) or extend the XML to access other
+    fields that are not allowed to be submitted by this user (but may exist in the actual
+    database)
+    
+    Example: User is allowed to enter the quantity but not cost of the item. If the XML
+    is not validated, attacker may replace quantity below with a new price or discount
+    by adding in the tags and creating another mock insert
+*/
+
 public class XMLInjectionTest
 {
     public XMLInjectionTest()

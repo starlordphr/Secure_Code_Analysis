@@ -5,9 +5,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+/*Sanitize Untrusted Data Check SQL Test Cases
+    Issue stems from creating a string that does not validate that the parameters
+    being used in the SQL string.
+    
+    Possible fix: validate the field or have it fed into an alternate method
+    
+    SQL Syntax overview: 
+    Dangerous SQL strings start with SELECT, INSERT, DELETE, ALTER, DROP, CREATE, 
+    USE, SHOW, ALTER
+    By Dangerous, these key words allow syntax after it that can enable the attacker
+    to access sensitive information or destroy sensitive information.
+    
+    E.g. Select * From db Where username = var
+    
+    var can be replaced with 'randomString OR '1 = 1' ' This will allow the attacker
+    to be able to access the entire table b/c the new string will therefore return
+    the whole table regardless of username b/c of the always true statement.
+*/
 public class SQLInjectionTest
 {
-   //code test cases for Sanitize untrusted data across trust boundaray (#7 on our list)
    private String pwd;
    private String username;
    private String fieldName;

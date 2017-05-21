@@ -21,7 +21,19 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Objects;
 
-
+/* Check #7: Unsanitized Untrusted Data Being Passed Through a Trust Boundary Check
+   (shortened the name to make it easier)
+   
+   Checks for where a separate language (e.g. SQL or XML) has a string being constructed
+   that uses variables whose values are not yet validated.
+   
+   Goal of Checker:
+   1) Find where a String is being built with variables. 
+       a. Pinpoint language being used
+       b. Check if it is a valid concern (varies per language if valid concern)
+          e.g. SQL requires a Connection or Statement. XML requires a stream.
+   2) See if it violates the check based on the Language
+*/
 @AutoService(BugChecker.class)
 
 @BugPattern(
