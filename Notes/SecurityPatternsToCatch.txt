@@ -102,11 +102,13 @@ Overall Pattern:
 5. Weak Encryption
 --------------------------
 // Use strong cryptography
-Reference page:
+Reference material: Jones Secure Coding Article, (a wiki page with current strong encryption techniques?)
+https://www.storagecraft.com/blog/5-common-encryption-algorithms/
 
 Main Idea:
 ~~~~~~~~~~
-
+Encryption should be using Industry Standard strong encryption. You should not be using home-grown encryption.
+Approved Strong techniques: Triple DES, RSA, AES, BlowFish, TwoFish
 
 Example from Book:
 ++++++++++++++++++
@@ -119,14 +121,14 @@ Overall Pattern:
 - Suggested solution: 
 
 
-6. Unsecure Fail!
+6. Fail Securely
 ------------------
-// Fail Securely
-Reference page:
+Reference page: Jones Secure Coding Article,
 
 Main Idea:
 ~~~~~~~~~~
-
+When the program crashes, make sure an security loop hole is not introduced. For example, if a connection to the
+database was opened, make sure it was closed on fail.
 
 Example from Book:
 ++++++++++++++++++
