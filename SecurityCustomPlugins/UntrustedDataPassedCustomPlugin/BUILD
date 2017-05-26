@@ -9,6 +9,5 @@ java_plugin(
 
 java_library(
     name = "CustomPluginTests",
-    srcs = ["SQLInjectionTest.java", 
-    "XMLInjectionTest.java"],
+    srcs = ["SQLInjectionTest.java", "XMLInjectionTest.java"],
 )

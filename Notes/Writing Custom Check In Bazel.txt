@@ -21,5 +21,8 @@ for an in-depth tutorial: http://errorprone.info/docs/plugins
 
 Note: To disable a check, just delete the corresponding java plug in line from the BUILD file.
 
+API documentation for all the ErrorProne items:
+http://errorprone.info/api/latest/
+
 Good Example:
 https://github.com/google/error-prone/blob/master/examples/plugin/bazel/java/com/google/errorprone/sample/MyCustomCheck.java
