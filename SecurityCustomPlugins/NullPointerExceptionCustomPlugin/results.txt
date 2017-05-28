@@ -1,0 +1,5 @@
+INFO: Found 1 target...
+Target //SecurityCustomPlugins/NullPointerExceptionCustomPlugin:nullPointerExceptionCaughtTests up-to-date:
+  bazel-bin/SecurityCustomPlugins/NullPointerExceptionCustomPlugin/libnullPointerExceptionCaughtTests.jar
+INFO: Elapsed time: 0.756s, Critical Path: 0.49s
+

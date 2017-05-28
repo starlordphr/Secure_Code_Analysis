@@ -1,0 +1,5 @@
+INFO: Found 1 target...
+Target //SecurityCustomPlugins/MathOverflowCustomPlugin:mathOverflowTests up-to-date:
+  bazel-bin/SecurityCustomPlugins/MathOverflowCustomPlugin/libmathOverflowTests.jar
+INFO: Elapsed time: 0.714s, Critical Path: 0.40s
+

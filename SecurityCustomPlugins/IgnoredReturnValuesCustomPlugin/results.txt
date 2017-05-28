@@ -1,0 +1,10 @@
+INFO: Found 1 target...
+ERROR: /home/rachel/CS230-Secure_Code_Analysis/SecurityCustomPlugins/IgnoredReturnValuesCustomPlugin/BUILD:1:1: Java compilation in rule '//SecurityCustomPlugins/IgnoredReturnValuesCustomPlugin:ignoredReturnValue' failed: Worker process sent response with exit code: 1.
+SecurityCustomPlugins/IgnoredReturnValuesCustomPlugin/ValuesReturnedByMethodIgnoredTest.java:41: error: [ReturnValueIgnored] Return value of this method must be used
+		original.replace('i', '9');
+		                ^
+    (see http://errorprone.info/bugpattern/ReturnValueIgnored)
+  Did you mean 'original = original.replace('i', '9');'?
+Target //SecurityCustomPlugins/IgnoredReturnValuesCustomPlugin:ignoredReturnValue failed to build
+INFO: Elapsed time: 0.446s, Critical Path: 0.29s
+
