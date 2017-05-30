@@ -3,6 +3,10 @@ Writing a Custom Check for Error Prone in Bazel
 for an in-depth tutorial: http://errorprone.info/docs/plugins
 
 1. Find a built-in check to copy & follow the pattern outlined in the custom check. Save the java file.
+   a. Your Java Class must extend BugChecker but it is advised that it implements one of the templates. 
+      E.g. BugChecker.MethodInvocationTreeMatcher
+   b. Override the methods for the respective template. Also make sure you place the appropriate warning & name for the 
+      checker in the @BugChecker section
 
 2. Modify the BUILD file in your project and ADD the following:
    java_plugin(
@@ -26,3 +30,4 @@ http://errorprone.info/api/latest/
 
 Good Example:
 https://github.com/google/error-prone/blob/master/examples/plugin/bazel/java/com/google/errorprone/sample/MyCustomCheck.java
+https://github.com/google/error-prone/blob/master/core/src/main/java/com/google/errorprone/bugpatterns/AbstractReturnValueIgnored.java (easy link to get to the bug pattern code :P )

@@ -50,6 +50,11 @@ Overall Pattern:
 - Method being called does have a return value => warn aboout this!
 - Suggested solution: Have variable for the return value and write a condition block on it
 
+Helpful Pointer:
+>>>>>>>>>>>>>>>>>
+Extend: https://github.com/google/error-prone/blob/master/core/src/main/java/com/google/errorprone/bugpatterns/ReturnValueIgnored.java
+Add more values to the hashmap and it should work... (doesn't take into account File Streams right now)
+
 
 3. NullPointerException Caught
 ------------------------------------

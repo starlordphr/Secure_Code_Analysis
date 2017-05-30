@@ -1,0 +1,24 @@
+MethodInvocationMatcher
+======================
+  + Matches based on a method called
+  + you define a Matcher<ExpressionTree> for the type of method you're looking for that is being called
+  + Example: AbstractReturnValueIgnored (is a template), ReturnValueIgnored
+
+
+MethodTreeMatcher
+=================
+  + Matches based on the syntax of the method (method design) (not to be confused with the above...)
+  + Examples include CheckReturnValue
+
+
+CatchTreeMatcher
+================
+   + ...
+
+ThrowTreeMatcher
+================
+   + ....
+   + Examples: ThrowNull()
+
+
+
