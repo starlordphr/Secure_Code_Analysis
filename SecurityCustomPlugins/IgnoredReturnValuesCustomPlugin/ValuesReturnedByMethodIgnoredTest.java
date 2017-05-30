@@ -34,7 +34,7 @@ public class ValuesReturnedByMethodIgnoredTest {
 			//error
 		}
 	}
-	
+
 	public void stringReplacementViolation()
 	{
 		String original = "insecure";

@@ -2,6 +2,8 @@ Writing a Custom Check for Error Prone in Bazel
 ===============================================
 for an in-depth tutorial: http://errorprone.info/docs/plugins
 
+0. Apparently there's a bit of setup? https://github.com/google/error-prone/wiki/For-Developers
+
 1. Find a built-in check to copy & follow the pattern outlined in the custom check. Save the java file.
    a. Your Java Class must extend BugChecker but it is advised that it implements one of the templates. 
       E.g. BugChecker.MethodInvocationTreeMatcher
@@ -21,9 +23,20 @@ for an in-depth tutorial: http://errorprone.info/docs/plugins
    where you replace the name with the name of your plug in, srcs with the java file name, and fill in dependencies with the 
    file names of the dependent items.
 
-3. Build Bazel and it should now run your custom check against the source code in the project file
+3. While still in the BUILD file, modify the java_library to add your plug in like the below:
+   java_library(
+    name = "customTest",
+    srcs = ["customTest.java"],
+    plugins = [":MyCustomCheckPlugin"],
+   )
+   
+
+4. Build Bazel and it should now run your custom check against the source code in the project file
 
 Note: To disable a check, just delete the corresponding java plug in line from the BUILD file.
+
+An Exercise Based Tutorial:
+https://github.com/google/error-prone/wiki/Writing-a-check
 
 API documentation for all the ErrorProne items:
 http://errorprone.info/api/latest/
