@@ -11,4 +11,5 @@ java_library(
     name = "CustomPluginTests",
     srcs = ["CompliantTest1.java", 
     "NonCompliantTest1.java"],
+    plugins = [":CaptureReturnValueofRead"],
 )
