@@ -98,9 +98,7 @@ public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
                  {
                     currentMethod = fileMethodsIterator.next();
                     tempMatcher = instanceMethod().onDescendantOf("java.io.File").named(currentMethod);
-                    System.out.println("Checking if " + currentMethod + " is being called");
                     classUsesFileDangerMethod = tempMatcher.matches(expressionTree, state);
-                    System.out.println("Is being called: " + classUsesFileDangerMethod);
                     if(classUsesFileDangerMethod)
                     {
                        return true;
