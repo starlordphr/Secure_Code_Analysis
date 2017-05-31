@@ -32,12 +32,12 @@ import java.io.PrintStream;
 import java.util.List;
 import java.util.Objects;
 
-import com.google.errorprone.bugpatterns.ReturnValueIgnored;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
+import java.io.File;
+import java.util.HashSet;
 
 @AutoService(BugChecker.class)
 
@@ -46,12 +46,11 @@ import java.util.Iterator;
 	category = JDK,
 	summary = "Return value ignored. Extended version of ReturnValueIgnored with File" 
                    +" Operations",
-        explanation = "Certain library methods do nothing useful if their return value is ignored. Also, this extended"
-                   + " version checks for security risk issues where the return value is ignored.",
+        explanation = "This extension to ReturnValueIgnored checks for security risk issues where the return value is" +                     " ignored.",
 	severity = ERROR
 )
 
-public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
+public class ExtendedReturnValueIgnoredCheck extends AbstractReturnValueIgnored
 {
     //original did not check boolean values returned from File. Methods to be sensitive to:
     //delete, createNewFile(), setReadOnly, setReadable, setWritable, setExecutable
@@ -70,48 +69,26 @@ public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
               "renameTo",
               "setLastModified"));
 
-  //exact same as parent but since it's private in parent, have to copy it in order to use it... 
-  private static Matcher<ExpressionTree> methodReturnsSameTypeAsReceiver() {
-    return new Matcher<ExpressionTree>() {
-      @Override
-      public boolean matches(ExpressionTree expressionTree, VisitorState state) {
-        return isSameType(
-            ASTHelpers.getReceiverType(expressionTree),
-            ASTHelpers.getReturnType(expressionTree),
-            state);
-      }
-    };
-   }
+    //private static Matcher<ExpressionTree> FILE_DELETE_METHOD = instanceMethod().onDescendantOf(File.class.getName()).named 
+    //   ("delete");
 
-    Matcher<ExpressionTree> FILE_MODIFICATION_METHOD = allOf(methodIsDangerFileMethod(fileMethodsToCheck), 
-           methodReturnsSameTypeAsReceiver());
+    private static Matcher<ExpressionTree> FILE_MODIFICATION_METHOD = anyOf(getFileModificationSet(fileMethodsToCheck));
 
-    private static Matcher<ExpressionTree> methodIsDangerFileMethod(final Set<String> methodsList)
+    private static Set<Matcher<ExpressionTree>> getFileModificationSet(final Set<String> methodsList)
     {
-        return new Matcher<ExpressionTree>() {
-             public boolean matches(ExpressionTree expressionTree, VisitorState state) {
-                 boolean classUsesFileDangerMethod = false;
-                 Matcher<ExpressionTree> tempMatcher;
-                 Iterator<String> fileMethodsIterator = fileMethodsToCheck.iterator();
-                 String currentMethod;
-                 for(int i = 0; i < fileMethodsToCheck.size(); i++)
-                 {
-                    currentMethod = fileMethodsIterator.next();
-                    tempMatcher = instanceMethod().onDescendantOf("java.io.File").named(currentMethod);
-                    classUsesFileDangerMethod = tempMatcher.matches(expressionTree, state);
-                    if(classUsesFileDangerMethod)
-                    {
-                       return true;
-                    }
-                 }
-
-                 return false;
-              }
-           };
+        Set<Matcher<ExpressionTree>> setToReturn = new HashSet<Matcher<ExpressionTree>>();
+        Iterator<String> fileMethodsIterator = methodsList.iterator();
+        while(fileMethodsIterator.hasNext())
+        {
+           String methodName = fileMethodsIterator.next();
+           setToReturn.add(instanceMethod().onDescendantOf(File.class.getName()).named(methodName));
+        }
+        
+        return setToReturn; 
     }
 
     public Matcher<? super MethodInvocationTree> specializedMatcher() 
     {
-    	return anyOf(super.specializedMatcher(), FILE_MODIFICATION_METHOD);
+        return FILE_MODIFICATION_METHOD;
     }
 }
