@@ -2,13 +2,14 @@ Writing a Custom Check for Error Prone in Bazel
 ===============================================
 for an in-depth tutorial: http://errorprone.info/docs/plugins
 
-0. Apparently there's a bit of setup? https://github.com/google/error-prone/wiki/For-Developers
+0. Setup the Workspace file and add the third party auto service (already done for you ;) )
 
 1. Find a built-in check to copy & follow the pattern outlined in the custom check. Save the java file.
    a. Your Java Class must extend BugChecker but it is advised that it implements one of the templates. 
       E.g. BugChecker.MethodInvocationTreeMatcher
    b. Override the methods for the respective template. Also make sure you place the appropriate warning & name for the 
       checker in the @BugChecker section
+   c. Feel free to look at a similar check to what you want and carefully import in the libraries.
 
 2. Modify the BUILD file in your project and ADD the following:
    java_plugin(

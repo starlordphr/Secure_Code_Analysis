@@ -7,6 +7,9 @@ import static com.google.errorprone.BugPattern.SeverityLevel.ERROR;
 import static com.google.errorprone.matchers.Description.NO_MATCH;
 import static com.google.errorprone.matchers.Matchers.instanceMethod;
 import static com.google.errorprone.matchers.method.MethodMatchers.staticMethod;
+import static com.google.errorprone.matchers.Matchers.allOf;
+import static com.google.errorprone.matchers.Matchers.anyOf;
+import static com.google.errorprone.util.ASTHelpers.isSameType;
 
 import com.google.auto.service.AutoService;
 import com.google.common.collect.Iterables;
@@ -34,14 +37,17 @@ import com.google.errorprone.bugpatterns.ReturnValueIgnored;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Iterator;
 
 @AutoService(BugChecker.class)
 
 @BugPattern(
   	name = "ExtendedReturnValueIgnoredCheck",
 	category = JDK,
-	summary = "Return value of this method must be used. Extended version of ReturnValueIgnored with File" 
+	summary = "Return value ignored. Extended version of ReturnValueIgnored with File" 
                    +" Operations",
+        explanation = "Certain library methods do nothing useful if their return value is ignored. Also, this extended"
+                   + " version checks for security risk issues where the return value is ignored.",
 	severity = ERROR
 )
 
@@ -63,7 +69,19 @@ public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
               "mkdir",
               "renameTo",
               "setLastModified"));
- 
+
+  //exact same as parent but since it's private in parent, have to copy it in order to use it... 
+  private static Matcher<ExpressionTree> methodReturnsSameTypeAsReceiver() {
+    return new Matcher<ExpressionTree>() {
+      @Override
+      public boolean matches(ExpressionTree expressionTree, VisitorState state) {
+        return isSameType(
+            ASTHelpers.getReceiverType(expressionTree),
+            ASTHelpers.getReturnType(expressionTree),
+            state);
+      }
+    };
+   }
 
     Matcher<ExpressionTree> FILE_MODIFICATION_METHOD = allOf(methodIsDangerFileMethod(fileMethodsToCheck), 
            methodReturnsSameTypeAsReceiver());
@@ -74,10 +92,13 @@ public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
              public boolean matches(ExpressionTree expressionTree, VisitorState state) {
                  boolean classUsesFileDangerMethod = false;
                  Matcher<ExpressionTree> tempMatcher;
+                 Iterator<String> fileMethodsIterator = fileMethodsToCheck.iterator();
+                 String currentMethod;
                  for(int i = 0; i < fileMethodsToCheck.size(); i++)
                  {
-                    tempMatcher = instanceMethod().onDescendantOf("java.io.File").named(fileMethodsToCheck.get(i));
-                    System.out.println("Checking if " + fileMethodsToCheck.get(i) + " is being called");
+                    currentMethod = fileMethodsIterator.next();
+                    tempMatcher = instanceMethod().onDescendantOf("java.io.File").named(currentMethod);
+                    System.out.println("Checking if " + currentMethod + " is being called");
                     classUsesFileDangerMethod = tempMatcher.matches(expressionTree, state);
                     System.out.println("Is being called: " + classUsesFileDangerMethod);
                     if(classUsesFileDangerMethod)
@@ -85,13 +106,14 @@ public class ExtendedReturnValueIgnoredCheck extends ReturnValueIgnored
                        return true;
                     }
                  }
-                 return classUsesFileDangerMethod;
+
+                 return false;
               }
            };
     }
 
     public Matcher<? super MethodInvocationTree> specializedMatcher() 
     {
-    	return anyOf(RETURNS_SAME_TYPE, FUNCTIONAL_METHOD, STREAM_METHOD, FILE_MODIFICATION_METHOD);
+    	return anyOf(super.specializedMatcher(), FILE_MODIFICATION_METHOD);
     }
 }
