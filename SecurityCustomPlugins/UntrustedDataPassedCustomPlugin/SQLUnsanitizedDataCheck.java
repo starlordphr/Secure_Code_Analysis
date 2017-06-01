@@ -15,7 +15,7 @@ import java.sql.Statement;
 )
 
 
-public class SQLUnsanitizedDataCheck extends UnsanitizedUntrustedDataPassedCheck
+public class SQLUnsanitizedDataCheck extends AbstractUnsanitizedUntrustedDataPassedCheck
 {
     LANGUAGE_METHOD = instanceMethod().onDescendantOf(Connection.class.getName()).named("executeQuery");
 
@@ -23,15 +23,14 @@ public class SQLUnsanitizedDataCheck extends UnsanitizedUntrustedDataPassedCheck
     private List<String> dangerSQLStrings = new ArrayList<>(Arrays.asList("SELECT", "INSERT", "DELETE", "ALTER", "DROP", 
          "CREATE", "USE", "SHOW", "ALTER"));
 
-    private SuggestedFix getCorrection(List<? extends ExpressionTree> fixArgs)
+    SuggestedFix getCorrection(List<? extends ExpressionTree> fixArgs)
     {
        //Suggested fixes are if statement or case statement. And use PreparedStatement's .setString() method
-
        return SuggestedFix.builder()
             .replace(
                 ((JCTree) tree).getStartPosition(),
                 ((JCTree) formatArgs.get(0)).getStartPosition(),
-                "System.err.printf(")
+                "PreparedStatement ")
             .replace(
                 state.getEndPosition((JCTree) getLast(formatArgs)),
                 state.getEndPosition((JCTree) tree),
@@ -39,9 +38,12 @@ public class SQLUnsanitizedDataCheck extends UnsanitizedUntrustedDataPassedCheck
             .build();
     }
 
-    private boolean isViolating(Symbol callerClassSymbol, MethodInvocationTree  tree, VisitorState state)
+    boolean isViolating(MethodInvocationTree  tree, VisitorState state)
     {
         //check if danger SQL strings are in the parameters with a variable in the string, if yes, trouble! (ignore case)
+        //look at current string being fed into language method and find
+        //need to visit parent tree and find if the parent has if & else statements for variables...
+        //may want to use tree scanner
 	return false;
     }
 

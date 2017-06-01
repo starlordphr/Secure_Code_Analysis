@@ -29,7 +29,7 @@ import org.xml.sax.helpers.DefaultHandler;
 )
 
 
-public class XMLUnsanitizedDataCheck extends UnsanitizedUntrustedDataPassedCheck
+public class XMLUnsanitizedDataCheck extends AbstractUnsanitizedUntrustedDataPassedCheck
 {
     LANGUAGE_METHOD = instanceMethod().onDescendantOf(BufferedOutputStream.class.getName()).named("write");
 
