@@ -39,7 +39,7 @@ public abstract class UnsanitizedUntrustedDataPassedCheck extends BugChecker imp
   //TO BE OVERWRITTEN
   //is the method that establishes the "connection" to pass the string to (e.g. in SQL it's connection, in Runtime exec, it's
   //Runtime.exec.
-  private Matcher<ExpressionTree> LANGUAGE_METHOD;
+  Matcher<ExpressionTree> LANGUAGE_METHOD;
 
   //since all cases pass if an if check on the parameters was performed => placing it in the parent
   //will also take into account switch statements too.
@@ -50,34 +50,21 @@ public abstract class UnsanitizedUntrustedDataPassedCheck extends BugChecker imp
 
   //TO BE OVERWRITTEN
   //returns the suggested fix for the error
-  private abstract SuggestedFix getCorrection(List<? extends ExpressionTree> fixArgs);
+  abstract SuggestedFix getCorrection(List<? extends ExpressionTree> fixArgs);
 
   //TO BE OVERWRITTEN
   //returns if there are other conditions the determine if the code passes or not. Should default be true and children
   //write conditions on when it is false (okay)
-  private abstract boolean isViolating(Symbol callerClassSymbol, MethodInvocationTree  tree, VisitorState state); 
+  abstract boolean isViolating(Symbol callerClassSymbol, MethodInvocationTree  tree, VisitorState state); 
 
   public Description matchMethodInvocation(MethodInvocationTree tree, VisitorState state) {
     if (!LANGUAGE_METHOD.matches(tree, state)) {
       return NO_MATCH;
     }
-    Symbol base =
-        tree.getMethodSelect()
-            .accept(
-                new TreeScanner<Symbol, Void>() {
-                  public Symbol visitIdentifier(IdentifierTree node, Void unused) {
-                    return ASTHelpers.getSymbol(node);
-                  }
-
-                  public Symbol visitMemberSelect(MemberSelectTree node, Void unused) {
-                    return super.visitMemberSelect(node, null);
-                  }
-                },
-                null);
 
     ExpressionTree arg = Iterables.getOnlyElement(tree.getArguments());
 
-    if(hasIfCheck(arg) || !isViolating(base,tree,state))
+    if(hasIfCheck(arg) || !isViolating(tree,state))
     {
       return NO_MATCH;
     }
