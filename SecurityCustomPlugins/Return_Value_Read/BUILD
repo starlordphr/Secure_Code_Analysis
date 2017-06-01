@@ -1,15 +1,13 @@
 java_plugin(
-    name = "CaptureReturnValueofReadPlugin",
+    name = "CaptureReturnValueofRead",
     srcs = ["CaptureReturnValueofRead.java"],
-    deps = [
-        "//third_party/java/auto_service",
-        "@error_prone//jar"
-    ],
+    deps = ["@error_prone//jar",
+            "@guava//jar",
+            "//third_party/java/auto_service",],
 )
 
 java_library(
-    name = "CustomPluginTests",
-    srcs = ["CompliantTest1.java", 
-    "NonCompliantTest1.java"],
+    name = "NonCompliantTest1",
+    srcs = ["NonCompliantTest1.java",],
     plugins = [":CaptureReturnValueofRead"],
 )

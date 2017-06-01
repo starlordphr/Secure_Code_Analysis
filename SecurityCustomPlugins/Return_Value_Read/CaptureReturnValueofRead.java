@@ -22,6 +22,7 @@ import static com.google.errorprone.matchers.Matchers.allOf;
 import static com.google.errorprone.matchers.Matchers.anyOf;
 import static com.google.errorprone.matchers.method.MethodMatchers.instanceMethod;
 import static com.google.errorprone.util.ASTHelpers.isSameType;
+import static com.sun.source.tree.Tree.Kind.INT_LITERAL;
 
 import com.google.errorprone.BugPattern;
 import com.google.errorprone.VisitorState;
@@ -35,21 +36,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** @author alexeagle@google.com (Alex Eagle) */
 @BugPattern(
-  name = "ReturnValueIgnored",
-  altNames = {"ResultOfMethodCallIgnored", "CheckReturnValue"},
+  name = "CaptureReturnValueofRead",
   summary = "Return value of this method must be used",
   explanation =
-      "Certain library methods do nothing useful if their return value is ignored. "
-          + "For example, String.trim() has no side effects, and you must store the return value "
-          + "of String.intern() to access the interned string.  This check encodes a list of "
-          + "methods in the JDK whose return value must be used and issues an error if they "
-          + "are not.",
+      "Read methods from FileInputStream must return int and it should be captured.",
   category = JDK,
   severity = ERROR
 )
-public class ReturnValueIgnored extends AbstractReturnValueIgnored {
+public class CaptureReturnValueofRead extends AbstractReturnValueIgnored {
   /**
    * A set of types which this checker should examine method calls on.
    *
@@ -89,10 +84,18 @@ public class ReturnValueIgnored extends AbstractReturnValueIgnored {
     return new Matcher<ExpressionTree>() {
       @Override
       public boolean matches(ExpressionTree expressionTree, VisitorState state) {
-        return isSameType(
-            java.lang.Integer,
+				if (ASTHelpers.getReceiverType(expressionTree).getKind() == INT_LITERAL)
+				{
+				return true;
+				}
+				else
+				{
+					return false;
+				}
+				/*return isSameType(
+            ASTHelpers.getReceiverType(expressionTree),
             ASTHelpers.getReturnType(expressionTree),
-            state);
+            state);*/
       }
     };
   }

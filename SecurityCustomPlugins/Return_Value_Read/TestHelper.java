@@ -12,13 +12,13 @@ import org.junit.runners.JUnit4;
 /** Unit tests for {@link DoNotReturnNull}. */
 @RunWith(JUnit4.class)
 @MediumTest(MediumTestAttribute.FILE)
-public class DoNotReturnNullTest {
+public class TestHelper {
 
   private CompilationTestHelper compilationHelper;
 
   @Before
   public void setup() {
-    compilationHelper = CompilationTestHelper.newInstance(DoNotReturnNull.class, getClass());
+    compilationHelper = CompilationTestHelper.newInstance(CaptureReturnValueofRead.class, getClass());
   }
 
   @Test
