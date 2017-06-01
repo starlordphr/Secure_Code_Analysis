@@ -18,10 +18,9 @@ import com.sun.tools.javac.tree.JCTree;
 
 @BugPattern(
   name = "Insecure_Randomness_Check",
-  altNames = {"Insecure_Randomness_Check"},
+  altNames = {"Insecure_Randomness"},
   summary = "Generate numbers with strong randomness using Java Cryptographic Library.",
   category = JDK,
-  documentSuppression = false,
   severity = ERROR
 )
 public class Insecure_Randomness_Check extends BugChecker implements MethodInvocationTreeMatcher {
