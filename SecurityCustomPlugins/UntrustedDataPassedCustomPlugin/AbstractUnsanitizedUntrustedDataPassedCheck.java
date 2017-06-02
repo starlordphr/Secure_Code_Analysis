@@ -47,47 +47,20 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
   //TO BE OVERWRITTEN
   //is the method that establishes the "connection" to pass the string to (e.g. in SQL it's connection, in Runtime exec, it's
   //Runtime.exec.
-  Matcher<ExpressionTree> LANGUAGE_METHOD;
-
-  private boolean hasCaseCheck(MethodTree tree, ArrayList<VariableTree> variables)
-  {
-      //can't get to parent... and having trouble with tree scanner
-      //Tree parentTree = tree.parent();
-      Tree parentTree = tree;
-      TreeScanner tscanner = new TreeScanner<VariableTree, Void>(){
-           public Name visitSwitch(SwitchTree node, Void unused)
-           {
-              return ((IdentifierTree) node.getExpression()).getName();
-           }
-           };
-      for(int i = 0; i < variables.size(); i++)
-      {
-          if(!parentTree.accept(tscanner).equals(variables.get(i).getName()))
-          {
-              variableWithNoCaseStatement = variables.get(i);
-              return false;
-          }
-      }
-      return true;
-  }
-
-  private boolean hasIfCheck(MethodInvocationTree tree, ArrayList<VariableTree> variables)
-  {
-     return true;
-  }
+  abstract Matcher<ExpressionTree> getLanguageMethod();
 
   //TO BE OVERWRITTEN
   //returns if there are other conditions the determine if the code passes or not. Should default be true and children
   //write conditions on when it is false (okay)
-  abstract boolean isViolating(MethodInvocationTree  tree, VisitorState state); 
+  abstract boolean isViolating(MethodTree  tree, VisitorState state); 
 
   public Description matchMethod(MethodTree tree, VisitorState state) {
-    if (tree.getBody() == null) {
+    if (tree.getBody() == null || tree.getBody().getStatements().isEmpty()) {
       return NO_MATCH;
     }
 
-    //get variables involved in any if tree in the method
-    ArrayList<IdentifierTree> variablesCoveredbyIf = tree.accept(new IfTreeAccumulator(), null);
+    //get variables involved in any if tree in the method... can't figure out the tree visitor yet...
+    ArrayList<IdentifierTree> variablesCoveredbyIf = new ArrayList<IdentifierTree>();//empty for now...
     
     //get variables involved in any switch tree in the method
     ArrayList<IdentifierTree> variablesCoveredbyCase = new ArrayList<IdentifierTree>();//empty for now...
@@ -102,7 +75,7 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
           ExpressionTree possibleTree = ((ExpressionStatementTree) statements.get(i)).getExpression();
           if(possibleTree instanceof MethodInvocationTree)
           {
-             if(LANGUAGE_METHOD.matches((MethodInvocationTree) possibleTree, state))
+             if(getLanguageMethod().matches((MethodInvocationTree) possibleTree, state))
              {
                   dangerCalled.add((MethodInvocationTree) possibleTree);
              }
@@ -119,7 +92,7 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
     ArrayList<IdentifierTree> variablesCalledByDanger = new ArrayList<IdentifierTree>();
     for(int i = 0; i < dangerCalled.size(); i++)
     {
-        List<? extends ExpressionTree> argsList = dangerCalled.get(i).tempTree.getArguments();
+        List<? extends ExpressionTree> argsList = dangerCalled.get(i).getArguments();
         for(int j = 0; j < argsList.size(); j++)
         {
             ExpressionTree currentArgument = argsList.get(j);
@@ -146,13 +119,13 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
 
 public static ArrayList<IdentifierTree> parseVariables(ExpressionTree tree)
     {
-       ArrayList<IdentifierTree> listToReturn = new ArrayList<VariableTree>();
+       ArrayList<IdentifierTree> listToReturn = new ArrayList<IdentifierTree>();
        if(tree instanceof MethodInvocationTree)
         {
             List<? extends Tree> argumentList = ((MethodInvocationTree) tree).getArguments();
             for(int i = 0; i < argumentList.size(); i++)
             {
-                listToReturn.addAll(parseVariables(argumentList.get(i)));
+                listToReturn.addAll(parseVariables((ExpressionTree) argumentList.get(i)));
             }
         }
         else if(tree instanceof BinaryTree)
@@ -170,7 +143,7 @@ public static ArrayList<IdentifierTree> parseVariables(ExpressionTree tree)
         }
         else if(tree instanceof IdentifierTree)
         {
-            listToReturn.add(tree);
+            listToReturn.add((IdentifierTree) tree);
         }
 
         return listToReturn;
@@ -186,7 +159,7 @@ public static ArrayList<IdentifierTree> parseVariables(ExpressionTree tree)
     
     ArrayList<IdentifierTree> reduce(ArrayList<IdentifierTree> prev, ArrayList<IdentifierTree> next)
     {
-        ArrayList<IdentifierTree> itemsToRemoveFromNext = new ArrayList<IdentifierTree>;
+        ArrayList<IdentifierTree> itemsToRemoveFromNext = new ArrayList<IdentifierTree>();
         for(int i = 0; i < prev.size(); i++)
         {
            for(int j = 0; j < next.size(); j++)
@@ -200,7 +173,12 @@ public static ArrayList<IdentifierTree> parseVariables(ExpressionTree tree)
 
        next.removeAll(itemsToRemoveFromNext);
 
-        return prev.addAll(next);
+       for(int i = 0; i < next.size(); i++)
+       {
+           prev.add(next.get(i));
+       }
+
+        return prev;
     }
   }
 }

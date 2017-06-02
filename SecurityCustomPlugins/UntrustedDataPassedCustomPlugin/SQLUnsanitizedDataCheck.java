@@ -47,7 +47,12 @@ public class SQLUnsanitizedDataCheck extends AbstractUnsanitizedUntrustedDataPas
             "SHOW", 
             "ALTER"));
 
-    boolean isViolating(MethodInvocationTree  tree, VisitorState state)
+    Matcher<ExpressionTree> getLanguageMethod()
+    {
+       return LANGUAGE_METHOD;
+    }
+
+    boolean isViolating(MethodTree  tree, VisitorState state)
     {
         //check if danger SQL strings are in the parameters with a variable in the string, if yes, trouble! (ignore case)
         //look at current string being fed into language method and find
