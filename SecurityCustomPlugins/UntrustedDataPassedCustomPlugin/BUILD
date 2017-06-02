@@ -1,6 +1,6 @@
 java_plugin(
     name = "XMLUnsanitizedDataCheckPlugin",
-    srcs = ["XMLUnsanitizedDataCheck.java"],
+    srcs = ["AbstractUnsanitizedUntrustedDataPassedCheck.java","XMLUnsanitizedDataCheck.java"],
     deps = [
         "@error_prone//jar",
             "@guava//jar",
@@ -10,7 +10,7 @@ java_plugin(
 
 java_plugin(
     name = "SQLUnsanitizedDataCheckPlugin",
-    srcs = ["SQLUnsanitizedDataCheck.java"],
+    srcs = ["AbstractUnsanitizedUntrustedDataPassedCheck.java", "SQLUnsanitizedDataCheck.java"],
     deps = [
         "@error_prone//jar",
             "@guava//jar",
@@ -19,7 +19,13 @@ java_plugin(
 )
 
 java_library(
-    name = "injectionLanguageTests",
-    srcs = ["SQLInjectionTest.java", "XMLInjectionTest.java"],
-    plugins = [":SQLUnsanitizedDataCheckPlugin", ":XMLUnsanitizedDataCheckPlugin"],
+    name = "SQLinjectionTest",
+    srcs = ["SQLInjectionTest.java"],
+    plugins = [":SQLUnsanitizedDataCheckPlugin"],
+)
+
+java_library(
+    name = "XMLinjectionTest",
+    srcs = ["XMLInjectionTest.java"],
+    plugins = [":XMLUnsanitizedDataCheckPlugin"],
 )

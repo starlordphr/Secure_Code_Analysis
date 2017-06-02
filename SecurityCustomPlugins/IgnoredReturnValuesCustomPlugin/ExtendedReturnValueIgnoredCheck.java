@@ -1,13 +1,10 @@
 package com.google.errorprone.bugpatterns;
 
-import static com.google.common.collect.Iterables.getLast;
 import static com.google.errorprone.BugPattern.Category.JDK;
 import static com.google.errorprone.BugPattern.LinkType.CUSTOM;
 import static com.google.errorprone.BugPattern.SeverityLevel.ERROR;
 import static com.google.errorprone.matchers.Description.NO_MATCH;
 import static com.google.errorprone.matchers.Matchers.instanceMethod;
-import static com.google.errorprone.matchers.method.MethodMatchers.staticMethod;
-import static com.google.errorprone.matchers.Matchers.allOf;
 import static com.google.errorprone.matchers.Matchers.anyOf;
 import static com.google.errorprone.util.ASTHelpers.isSameType;
 
@@ -22,13 +19,9 @@ import com.google.errorprone.matchers.Description;
 import com.google.errorprone.matchers.Matcher;
 import com.google.errorprone.util.ASTHelpers;
 import com.sun.source.tree.ExpressionTree;
-import com.sun.source.tree.IdentifierTree;
-import com.sun.source.tree.MemberSelectTree;
 import com.sun.source.tree.MethodInvocationTree;
-import com.sun.source.util.TreeScanner;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.tree.JCTree;
-import java.io.PrintStream;
 import java.util.List;
 import java.util.Objects;
 
@@ -68,9 +61,6 @@ public class ExtendedReturnValueIgnoredCheck extends AbstractReturnValueIgnored
               "mkdir",
               "renameTo",
               "setLastModified"));
-
-    //private static Matcher<ExpressionTree> FILE_DELETE_METHOD = instanceMethod().onDescendantOf(File.class.getName()).named 
-    //   ("delete");
 
     private static Matcher<ExpressionTree> FILE_MODIFICATION_METHOD = anyOf(getFileModificationSet(fileMethodsToCheck));
 

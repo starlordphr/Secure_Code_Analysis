@@ -1,9 +1,27 @@
+package com.google.errorprone.bugpatterns;
+
+import static com.google.common.collect.Iterables.getLast;
+
+import static com.google.errorprone.BugPattern.Category.JDK;
+import static com.google.errorprone.BugPattern.LinkType.CUSTOM;
+import static com.google.errorprone.BugPattern.SeverityLevel.ERROR;
+import static com.google.errorprone.matchers.Description.NO_MATCH;
+import static com.google.errorprone.matchers.Matchers.instanceMethod;
+import com.google.errorprone.matchers.Matcher;
+import com.sun.source.tree.*;
+import com.google.errorprone.VisitorState;
+import com.google.errorprone.BugPattern;
+import com.google.errorprone.bugpatterns.BugChecker;
+import com.google.auto.service.AutoService;
+
+import java.util.List;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 
 @AutoService(BugChecker.class)
 
@@ -13,30 +31,21 @@ import java.sql.Statement;
 	summary = "Untrusted Data not checked for constraints before being passed into SQL Command",
 	severity = ERROR
 )
-
-
 public class SQLUnsanitizedDataCheck extends AbstractUnsanitizedUntrustedDataPassedCheck
 {
-    LANGUAGE_METHOD = instanceMethod().onDescendantOf(Connection.class.getName()).named("executeQuery");
+    Matcher<ExpressionTree> LANGUAGE_METHOD = instanceMethod().onDescendantOf(Statement.class.getName()).named("executeQuery");
 
     //list of dangerous SQL operations that can expose a security risk
-    private List<String> dangerSQLStrings = new ArrayList<>(Arrays.asList("SELECT", "INSERT", "DELETE", "ALTER", "DROP", 
-         "CREATE", "USE", "SHOW", "ALTER"));
-
-    SuggestedFix getCorrection(List<? extends ExpressionTree> fixArgs)
-    {
-       //Suggested fixes are if statement or case statement. And use PreparedStatement's .setString() method
-       return SuggestedFix.builder()
-            .replace(
-                ((JCTree) tree).getStartPosition(),
-                ((JCTree) formatArgs.get(0)).getStartPosition(),
-                "PreparedStatement ")
-            .replace(
-                state.getEndPosition((JCTree) getLast(formatArgs)),
-                state.getEndPosition((JCTree) tree),
-                ")")
-            .build();
-    }
+    private final static List<String> dangerSQLStrings = new ArrayList<>(Arrays.asList(
+            "SELECT",
+            "INSERT", 
+            "DELETE",
+            "ALTER", 
+            "DROP", 
+            "CREATE",
+            "USE", 
+            "SHOW", 
+            "ALTER"));
 
     boolean isViolating(MethodInvocationTree  tree, VisitorState state)
     {
