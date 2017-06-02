@@ -29,6 +29,7 @@ public class SQLInjectionTest
    private String username;
    private String fieldName;
    private String fieldValue;
+   private int i;
    
    public SQLInjectionTest()
    {
@@ -42,6 +43,7 @@ public class SQLInjectionTest
        pwd = scan.next();
        fieldName = scan.next();
        fieldValue = scan.next();
+       i = scan.nextInt();
        scan.close();
    }
 
@@ -69,6 +71,49 @@ public class SQLInjectionTest
    {
 	   //hash the string
 	   return "&&&&&";
+   }
+
+   public void mixedPass(Connection conn) throws SQLException
+   {
+       readInStrings();
+       if(username.length() > 8)
+       {
+          //throw error
+       }
+
+       switch(i)
+       {
+         case 0:
+            pwd = "Hello";
+            break;
+         default:
+            pwd = "evil!";
+       }
+      
+       String sqlString = "Select * from db where " + username + " = " + pwd;
+
+       Statement stmt = conn.createStatement();
+       ResultSet rs = stmt.executeQuery(sqlString);
+   }
+
+   //pass b/c of the if statements
+   public void ifPass(Connection conn) throws SQLException
+   {
+       readInStrings();
+       if(username.length() > 8)
+       {
+          //throw error
+       }
+
+       if(pwd < 6)
+       {
+          //throw error
+       }
+      
+       String sqlString = "Select * from db where " + username + " = " + pwd;
+
+       Statement stmt = conn.createStatement();
+       ResultSet rs = stmt.executeQuery(sqlString);
    }
 
    //the correct way according to the book.
