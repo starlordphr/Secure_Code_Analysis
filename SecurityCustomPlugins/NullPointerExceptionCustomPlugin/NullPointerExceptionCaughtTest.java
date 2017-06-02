@@ -78,7 +78,11 @@ public class NullPointerExceptionCaughtTest {
 	
 	public void runtimeExceptionViolation()
 	{
-		
+             try{
+                  //something
+             }
+             catch (RuntimeException e){
+             }
 	}
 	
 	public void nullPointerPass()
