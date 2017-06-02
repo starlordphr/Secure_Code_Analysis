@@ -9,7 +9,7 @@ import static com.google.errorprone.BugPattern.SeverityLevel.ERROR;
 import static com.google.errorprone.matchers.Description.NO_MATCH;
 import static com.google.errorprone.matchers.Matchers.instanceMethod;
 
-import com.google.errorprone.bugpatterns.BugChecker.MethodInvocationTreeMatcher;
+import com.google.errorprone.bugpatterns.BugChecker.MethodTreeMatcher;
 import com.google.errorprone.matchers.Description;
 import com.google.errorprone.matchers.Matcher;
 import com.sun.source.tree.VariableTree;
@@ -42,16 +42,14 @@ import java.util.ArrayList;
           e.g. SQL requires a Connection or Statement. XML requires a stream.
    2) See if it violates the check based on the Language
 */
-public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChecker implements MethodInvocationTreeMatcher {
+public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChecker implements MethodTreeMatcher {
 
   //TO BE OVERWRITTEN
   //is the method that establishes the "connection" to pass the string to (e.g. in SQL it's connection, in Runtime exec, it's
   //Runtime.exec.
   Matcher<ExpressionTree> LANGUAGE_METHOD;
-  private VariableTree variableWithNoCaseStatement;
-  private VariableTree variableWithNoIfStatement;
 
-  private boolean hasCaseCheck(MethodInvocationTree tree, ArrayList<VariableTree> variables)
+  private boolean hasCaseCheck(MethodTree tree, ArrayList<VariableTree> variables)
   {
       //can't get to parent... and having trouble with tree scanner
       //Tree parentTree = tree.parent();
@@ -83,32 +81,126 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
   //write conditions on when it is false (okay)
   abstract boolean isViolating(MethodInvocationTree  tree, VisitorState state); 
 
-  public Description matchMethodInvocation(MethodInvocationTree tree, VisitorState state) {
-    if (!LANGUAGE_METHOD.matches(tree, state)) {
+  public Description matchMethod(MethodTree tree, VisitorState state) {
+    if (tree.getBody() == null) {
       return NO_MATCH;
     }
 
-    //store all the variables that were used in the string part into an arraylist for later verification
-    ArrayList<VariableTree> variablesInMethodList = new ArrayList<VariableTree>(); 
-    List<? extends Tree> arguments = tree.getArguments();
-    for(int i = 0; i < arguments.size(); i++)
+    //get variables involved in any if tree in the method
+    ArrayList<IdentifierTree> variablesCoveredbyIf = tree.accept(new IfTreeAccumulator(), null);
+    
+    //get variables involved in any switch tree in the method
+    ArrayList<IdentifierTree> variablesCoveredbyCase = new ArrayList<IdentifierTree>();//empty for now...
+
+    //retrieve where the danger methods are called
+    List<? extends StatementTree> statements = tree.getBody().getStatements();
+    ArrayList<MethodInvocationTree> dangerCalled = new ArrayList<MethodInvocationTree>();
+    for(int i = 0; i < statements.size(); i++)
     {
-        if(arguments.get(i).getKind().equals(Tree.Kind.VARIABLE))
+       if(statements.get(i) instanceof ExpressionStatementTree)
+       {
+          ExpressionTree possibleTree = ((ExpressionStatementTree) statements.get(i)).getExpression();
+          if(possibleTree instanceof MethodInvocationTree)
+          {
+             if(LANGUAGE_METHOD.matches((MethodInvocationTree) possibleTree, state))
+             {
+                  dangerCalled.add((MethodInvocationTree) possibleTree);
+             }
+          }
+       }
+    }
+
+    //dangerous trusted boundary not called
+    if(dangerCalled.isEmpty())
+    {
+        return NO_MATCH;
+    }
+
+    ArrayList<IdentifierTree> variablesCalledByDanger = new ArrayList<IdentifierTree>();
+    for(int i = 0; i < dangerCalled.size(); i++)
+    {
+        List<? extends ExpressionTree> argsList = dangerCalled.get(i).tempTree.getArguments();
+        for(int j = 0; j < argsList.size(); j++)
         {
-            variablesInMethodList.add(((VariableTree) arguments.get(i)));
+            ExpressionTree currentArgument = argsList.get(j);
+            variablesCalledByDanger.addAll(parseVariables(currentArgument));
         }
     }
 
-    boolean casePass = hasCaseCheck(tree, variablesInMethodList);
-    boolean ifPass = hasIfCheck(tree, variablesInMethodList);
+    //dangerous methods are being called w/o any variables being passed in so whew!
+    if(variablesCalledByDanger.isEmpty())
+    {
+       return NO_MATCH;
+    }
 
-    if(casePass || ifPass || !isViolating(tree,state))
+    boolean ifPass = false;
+
+
+    if(!isViolating(tree,state))
     {
       return NO_MATCH;
     }
 
-    //return describeMatch(tree, Description.builder(variableWithNoCaseStatement,"Variable is not validated before use" ,null, 
-    //       BugPattern.SeverityLevel.ERROR, variableWithNoCaseStatement.getName() + " is not validated before use").build());
     return describeMatch(tree, SuggestedFix.builder().build());
+  }
+
+public static ArrayList<IdentifierTree> parseVariables(ExpressionTree tree)
+    {
+       ArrayList<IdentifierTree> listToReturn = new ArrayList<VariableTree>();
+       if(tree instanceof MethodInvocationTree)
+        {
+            List<? extends Tree> argumentList = ((MethodInvocationTree) tree).getArguments();
+            for(int i = 0; i < argumentList.size(); i++)
+            {
+                listToReturn.addAll(parseVariables(argumentList.get(i)));
+            }
+        }
+        else if(tree instanceof BinaryTree)
+        {
+            ExpressionTree left = ((BinaryTree) tree).getLeftOperand();
+            listToReturn = parseVariables(left);
+
+            ExpressionTree right = ((BinaryTree) tree).getRightOperand();
+            ArrayList<IdentifierTree> rightVariables = parseVariables(right);
+           
+            for(int i = 0; i < rightVariables.size(); i++)
+            {
+               listToReturn.add(rightVariables.get(i));   
+            }
+        }
+        else if(tree instanceof IdentifierTree)
+        {
+            listToReturn.add(tree);
+        }
+
+        return listToReturn;
+    }
+
+  class IfTreeAccumulator extends TreeScanner{
+     ArrayList<IdentifierTree> visitIf(IfTree tree, Void v)
+     {
+        ExpressionTree condition = tree.getCondition();
+        return parseVariables(condition);
+     }
+
+    
+    ArrayList<IdentifierTree> reduce(ArrayList<IdentifierTree> prev, ArrayList<IdentifierTree> next)
+    {
+        ArrayList<IdentifierTree> itemsToRemoveFromNext = new ArrayList<IdentifierTree>;
+        for(int i = 0; i < prev.size(); i++)
+        {
+           for(int j = 0; j < next.size(); j++)
+           {
+               if(prev.get(i).equals(next.get(j)))
+               {
+                  itemsToRemoveFromNext.add(next.get(j));
+               }
+           }
+        }
+
+       next.removeAll(itemsToRemoveFromNext);
+
+        return prev.addAll(next);
+    }
   }
 }
