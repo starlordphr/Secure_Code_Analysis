@@ -44,8 +44,8 @@ public class NPEAndParentsCaughtCheck extends BugChecker implements BugChecker.C
       boolean isRuntimeException = isSameType(exceptionType, state.getSymtab().runtimeExceptionType, state);
       boolean isException = isSameType(exceptionType, state.getSymtab().exceptionType, state);
       
-      //boolean isNPE = isSameType(exceptionType, state.getSymtab().nullPointerExceptionType, state);
-      boolean isNPE = false;
+      String nPEString = "NullPointerException";
+      boolean isNPE = tree.getParameter().getType().toString().equals(nPEString);
       if(isRuntimeException || isNPE || isException)
       {
          return describeMatch(tree,SuggestedFix.builder().build());
