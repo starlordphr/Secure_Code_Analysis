@@ -1,49 +1,37 @@
-import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class CompliantTest1 {
 
-   public static void main(String[] args) throws Exception {
-      InputStream is = null;
-      InputStreamReader isr = null;
-      BufferedReader br = null;
+   public static void main(String[] args) throws IOException {
+      FileInputStream fis = null;
+      int i = 0;
+      byte c;
 
       try {
 
-         // open input stream test.txt for reading purpose.
-         is = new FileInputStream("c:/test.txt");
+         // create new file input stream
+         fis = new FileInputStream("test.txt");
 
-         // create new input stream reader
-         isr = new InputStreamReader(is);
+         // read till the end of the file
+         while((i = fis.read())!=-1) {
 
-         // create new buffered reader
-         br = new BufferedReader(isr);
-
-         int value = 0;
-
-         // reads to the end of the stream
-         while((value = br.read()) != -1) {
-
-            // converts int to character
-            char c = (char)value;
+            // converts integer to character
+            c = (byte)i;
 
             // prints character
-            System.out.println(c);
+            System.out.print(c);
          }
 
-      } catch(Exception e) {
-         e.printStackTrace();
+      } catch(Exception ex) {
+
+         // if any error occurs
+         ex.printStackTrace();
       } finally {
 
-         // releases resources associated with the streams
-         if(is!=null)
-            is.close();
-         if(isr!=null)
-            isr.close();
-         if(br!=null)
-            br.close();
+         // releases all system resources from the streams
+         if(fis!=null)
+            fis.close();
       }
    }
 }
