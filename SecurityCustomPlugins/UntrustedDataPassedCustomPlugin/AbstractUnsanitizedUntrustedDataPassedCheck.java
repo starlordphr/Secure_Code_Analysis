@@ -91,32 +91,61 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
         {
            identifiersToFindIfSwitchFor.add((IdentifierTree) currArg);
         }
+        else if(currArg instanceof BinaryTree)
+        {
+           ArrayList<IdentifierTree> identifiersInParm = parseBinaryTreeForIdentifiers((BinaryTree) currArg);
+           for(int j = 0; j < identifiersInParm.size(); j++)
+           {
+              identifiersToFindIfSwitchFor.add(identifiersInParm.get(j));
+           }
+        }
     }
 
     //loop over parent block to find the respective assignment statements and add to identifiers to find if switch for
-    TreePath parentPath = state.getPath().getParentPath();
-    BlockTree parentBlock = (BlockTree) parentPath.iterator().next();
-    
+    TreePath parentPath = state.getPath().getParentPath().getParentPath();
+    Iterator parentIterator = parentPath.iterator();
+    if(!parentIterator.hasNext())
+    {
+       return NO_MATCH;
+    }
+    Tree parentCaller = (Tree) parentIterator.next();
+    //want to only call those not in an ifstatement, try & catch, etc. too complicated => why it's a warning message
+    if(!(parentCaller instanceof BlockTree))
+    {
+       return NO_MATCH; //for now.. not too sure how I want the final decision to go
+    }
+    BlockTree parentBlock = (BlockTree) parentCaller;
+    //note: parent of a methodInvocation is a StatementTree. Statement's tree should then be a block tree
+
     List<? extends StatementTree> statementsOfParent = parentBlock.getStatements();
     ArrayList<VariableTree> startingValuesToCheck = new ArrayList<VariableTree>();
     ArrayList<ExpressionTree> furtherInvestigationExpressions = new ArrayList<ExpressionTree>();
     ArrayList<IfTree> parentIfTrees = new ArrayList<IfTree>();
     ArrayList<SwitchTree> parentSwitchTrees = new ArrayList<SwitchTree>();
-    for(int i = 0; i < statementsOfParent; i++)
+    for(int i = 0; i < statementsOfParent.size(); i++)
     {
          StatementTree currStatement = statementsOfParent.get(i);
          if(currStatement instanceof VariableTree)
          {
-            //modifiers type name initializer ;
+            //modifiers type name initializer ; which most of examples are...
             Name varName = ((VariableTree) currStatement).getName();
+            IdentifierTree identifierFound = null;
             for(int j = 0; j < identifiersToFindIfSwitchFor.size(); j++)
             {
                if(varName.equals(identifiersToFindIfSwitchFor.get(j).getName()))
                {
-                   startingValuesToCheck.add((VariableTree) currStatement);
+                   identifierFound = identifiersToFindIfSwitchFor.get(j);
                    j = identifiersToFindIfSwitchFor.size();
                }
             }
+
+           //is a variable initializer and has a valid value on the right
+           //not of the useless form String sqlStatement;
+           if(identifierFound != null && (((VariableTree) currStatement).getInitializer() != null))
+           {
+              identifiersToFindIfSwitchFor.remove(identifierFound);
+              startingValuesToCheck.add((VariableTree) currStatement);
+           }
          }
          else if(currStatement instanceof IfTree)
          {
@@ -134,7 +163,7 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
              ExpressionTree exp = ((ExpressionStatementTree) currStatement).getExpression();
              if(exp instanceof AssignmentTree)
              {
-                 Name varName = ((AssignmentTree) exp).getVariable().getName();
+                 Name varName = ((VariableTree) ((AssignmentTree) exp).getVariable()).getName();
                  for(int j = 0; j < identifiersToFindIfSwitchFor.size(); j++)
                   {
                     if(varName.equals(identifiersToFindIfSwitchFor.get(j).getName()))
@@ -145,7 +174,7 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
              }
              else if(exp instanceof CompoundAssignmentTree)
              {
-                  Name varName = ((CompoundAssignmentTree) exp).getVariable().getName();
+                  Name varName = ((VariableTree) ((CompoundAssignmentTree) exp).getVariable()).getName();
                   for(int j = 0; j < identifiersToFindIfSwitchFor.size(); j++)
                   {
                     if(varName.equals(identifiersToFindIfSwitchFor.get(j).getName()))
@@ -157,28 +186,36 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
          }
     }
 
-    //update identifier list with easy to grab identifiers
-    for(int i = 0; i < expressionsToValidate.size(); i++)
+    //startingvalues to check is an array of Variable trees where Name indicates the name of the variable they are
+    //being assigned to. Main issue is the right side to look for identifiers.
+    for(int i = 0; i < startingValuesToCheck.size(); i++)
     {
-        ExpressionTree currExpression = expressionsToValidate.get(i);
-        //look for the identifier tree in the expression
-        TreeScanner<IdentifierTree, Void> identifierScanner = new TreeScanner<IdentifierTree, Void>();
-        IdentifierTree idents = currExpression.accept(identifierScanner, null);
-        identifiersToFindIfSwitchFor.add(idents);
-        boolean keepLooking = true;
-        while(keepLooking)
-        {
-           IdentifierTree nextIdent = currExpression.accept(identifierScanner, null);
-           if(nextIdent.equals(idents))
-           {
-               keepLooking = false;
-           }
-           else
-           {
-             identifiersToFindIfSwitchFor.add(nextIdent);
-           }
-        }
+       VariableTree currTree = startingValuesToCheck.get(i);
+       ExpressionTree rightSide = currTree.getInitializer();
+       //going to only look at the simpler cases of var + var, and var
+       if(rightSide instanceof BinaryTree)
+       {
+          ArrayList<IdentifierTree> identifiersToCheck = parseBinaryTreeForIdentifiers((BinaryTree) rightSide);
+          for(int j = 0; j < identifiersToCheck.size(); j++)
+          {
+              identifiersToFindIfSwitchFor.add(identifiersToCheck.get(j));
+          }
+       }
+       else if(rightSide instanceof IdentifierTree)
+       {
+          identifiersToFindIfSwitchFor.add((IdentifierTree) rightSide);
+       }
+    }
 
+    if(identifiersToFindIfSwitchFor.size() > 1)
+    {
+      return describeMatch(tree, SuggestedFix.builder().build());
+    }
+
+    //especially needed for those dependent on these assignments/compound assignments
+    if(furtherInvestigationExpressions.size() != 0)
+    {
+       return describeMatch(tree, SuggestedFix.builder().build());
     }
 
     //find if statements (remove from identifiers to find if switch for)
@@ -196,6 +233,37 @@ public abstract class AbstractUnsanitizedUntrustedDataPassedCheck extends BugChe
     }
 
     return describeMatch(tree, SuggestedFix.builder().build());
+  }
+
+  private ArrayList<IdentifierTree> parseBinaryTreeForIdentifiers(BinaryTree tree)
+  {
+      ArrayList<IdentifierTree> listToReturn = new ArrayList<IdentifierTree>();
+      ExpressionTree leftSide = tree.getLeftOperand();
+      if(leftSide instanceof BinaryTree)
+      {
+          listToReturn = parseBinaryTreeForIdentifiers((BinaryTree)leftSide);
+      }
+      else if(leftSide instanceof IdentifierTree)
+      {
+          listToReturn.add((IdentifierTree) leftSide);
+      }
+
+      ExpressionTree rightSide = tree.getRightOperand();
+      ArrayList<IdentifierTree> rightIdentifiers = new ArrayList<IdentifierTree>();
+      if(rightSide instanceof BinaryTree)
+      {
+          rightIdentifiers = parseBinaryTreeForIdentifiers((BinaryTree) rightSide);
+      }
+      else if(rightSide instanceof IdentifierTree)
+      {
+           rightIdentifiers.add((IdentifierTree) rightSide);
+      }
+
+      for(int i = 0; i < rightIdentifiers.size(); i++)
+      {
+           listToReturn.add(rightIdentifiers.get(i));
+      }
+      return listToReturn;
   }
 
 }
