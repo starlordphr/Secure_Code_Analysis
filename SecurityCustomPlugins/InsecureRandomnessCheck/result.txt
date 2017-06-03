@@ -1,0 +1,18 @@
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/InsecureRandomnessCheck$ bazel build :NonCompliantTest
+INFO: Found 1 target...
+ERROR: /home/prajput/CS230-Secure_Code_Analysis/SecurityCustomPlugins/InsecureRandomnessCheck/BUILD:8:1: Building SecurityCustomPlugins/InsecureRandomnessCheck/libNonCompliantTest.jar (1 source file) failed: Worker process sent response with exit code: 1.
+SecurityCustomPlugins/InsecureRandomnessCheck/NonCompliantTest.java:6: error: [Insecure_Randomness_Check] Use the java.security.SecureRandom class to produce high-quality random numbers.
+    System.err.println(r.nextInt());
+                                ^
+   -- Example Usage: SecureRandom number = SecureRandom.getInstance('SHA1PRNG');
+   -- Example Usage: number.nextInt(21)
+    (see http://errorprone.info/bugpattern/Insecure_Randomness_Check)
+Target //SecurityCustomPlugins/InsecureRandomnessCheck:NonCompliantTest failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 0.489s, Critical Path: 0.30s
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/InsecureRandomnessCheck$ bazel build :CompliantTest
+INFO: Found 1 target...
+Target //SecurityCustomPlugins/InsecureRandomnessCheck:CompliantTest up-to-date:
+  bazel-bin/SecurityCustomPlugins/InsecureRandomnessCheck/libCompliantTest.jar
+INFO: Elapsed time: 0.278s, Critical Path: 0.07s
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/InsecureRandomnessCheck$

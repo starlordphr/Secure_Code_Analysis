@@ -43,7 +43,7 @@ public class NPEAndParentsCaughtCheck extends BugChecker implements BugChecker.C
       Type exceptionType = ((JCTree) tree.getParameter().getType()).type;
       boolean isRuntimeException = isSameType(exceptionType, state.getSymtab().runtimeExceptionType, state);
       boolean isException = isSameType(exceptionType, state.getSymtab().exceptionType, state);
-      
+
       String nPEString = "NullPointerException";
       boolean isNPE = tree.getParameter().getType().toString().equals(nPEString);
       if(isRuntimeException || isNPE || isException)
@@ -54,4 +54,3 @@ public class NPEAndParentsCaughtCheck extends BugChecker implements BugChecker.C
    }
 
 }
-
