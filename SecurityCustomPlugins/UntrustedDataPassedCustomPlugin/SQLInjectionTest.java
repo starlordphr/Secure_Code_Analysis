@@ -65,6 +65,8 @@ public class SQLInjectionTest
        String sqlString = "Select * from db where " + fieldName + "= " + fieldValue;
        Statement stmt = conn.createStatement();
        ResultSet rs = stmt.executeQuery(sqlString);
+       ResultSet ss = stmt.executeQuery("Select" + " * from db where " + username + " = " + pwd);
+       ResultSet ts = stmt.executeQuery("Select" + username);
    }
    
    private String hash(String str)
@@ -105,7 +107,7 @@ public class SQLInjectionTest
           //throw error
        }
 
-       if(pwd < 6)
+       if(pwd.length() < 6)
        {
           //throw error
        }
