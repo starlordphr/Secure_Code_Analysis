@@ -1,0 +1,25 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10160\viewh7220\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \ul \ulc0 Evaluation Strategy\
+
+\b0 \ulnone We\'92ve selected 8-10 idioms that are indicative of security vulnerabilities. Based off examples, we will attempt transform them into Java syntax patterns and integrate them as rules into ErrorProne. Then we will run modified ErrorProne over 4 open source Java programs. The programs chosen are:\
+\
+1) Eclipse\
+2) Jetty plug-in for Eclipse\
+3) Apache Tomcat\
+4) Eucalyptus\
+\
+These four programs were chosen because they are significant codebases (get LOC statistics) with multiple versions that each release information about found and fixed security bugs for each version. To measure precision, we will collect the results from running ErrorProne and pick a random sample to examine; using the sample, we will manually determine how many of each were part of a related security bug. To measure accuracy, we will also select a random sample of versions and manually inspect the known security bugs in each version to see if they matched an idiom that we were trying to identify.\
+\
+\
+\
+\
+\
+\
+\
+}
