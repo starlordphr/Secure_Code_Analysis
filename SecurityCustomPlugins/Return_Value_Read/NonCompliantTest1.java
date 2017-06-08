@@ -14,7 +14,7 @@ public class NonCompliantTest1 {
          fis = new FileInputStream("test.txt");
 
          // read till the end of the file
-         while((i = (byte)fis.read())!=-1) {
+         while((i = (byte) fis.read())!=-1) {
 
             // converts integer to character
             c = (char)i;

@@ -7,7 +7,7 @@ java_plugin(
 )
 
 java_library(
-    name = "CompliantTest2",
-    srcs = ["CompliantTest2.java",],
+    name = "NonCompliantTest1",
+    srcs = ["NonCompliantTest1.java",],
     plugins = [":CaptureReturnValueofRead"],
 )
