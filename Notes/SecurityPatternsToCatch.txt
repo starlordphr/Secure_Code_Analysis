@@ -87,22 +87,33 @@ Overall Pattern:
 4. Capture the Return Value via Int
 ----------------------------------------------------------------------------
 // Use an int to capture the return value of methods that read a character or byte
-Reference page:
+Reference page: CERT Secure Java Coding pg. 504
 
 Main Idea:
 ~~~~~~~~~~
+When InputStream or Reader subclass want to read from streams, programmers uses -1 to check end of the stream. 
+Because -1 is int type and reading returns byte or char,  it can cause unexpected situation when they are compared. (-1 is truncated to compare)
+To check end of stream with -1, it is needed using int to compare then type casting to get the data.
 
 
 Example from Book:
 ++++++++++++++++++
 Bad:
+reading stream as byte and compare with -1
+reading stream as char and compare with -1
 Good:
+reading stream as int and compare with -1
+then type cast to byte or char
 
 Overall Pattern:
 +-+-+-+-+-+-+-+-+
-- ...
+- After initializing stream, reading from stream with loop.
+- For loop terminate condition, checking end of streams with -1.
+- type of reading stream should be int
+- inside of loop, type cast for data
 - Suggested solution: 
-
+	checking InputStream or Reader read.
+if yes, checking (read) receiver type as int.
 
 5. Weak Encryption
 --------------------------
@@ -137,14 +148,20 @@ database was opened, make sure it was closed on fail.
 
 Example from Book:
 ++++++++++++++++++
-Bad:
+Bad: 
+  Terminate when the program fails without close resources which are using.
 Good:
+  Whenever, although the program is needed to be terminated due to failures, currently using resources closed before the program ends.
 
 Overall Pattern:
 +-+-+-+-+-+-+-+-+
-- ...
+- Checking which resources are held by program.
+- if it has finally block, close all resources.
+- or initialize only autoclosable resources.
 - Suggested solution: 
-
+	check which resources are hang.
+If yes,	check they are needed to be closed.
+If yes,	check close methods in finally block.
 
 7. Unsanitized untrusted data across trust boundary
 ----------------------------------------------------
