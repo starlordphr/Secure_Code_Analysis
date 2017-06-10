@@ -1,13 +1,13 @@
-prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :CompliantTest1
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :NonCompliantTest1
 INFO: Found 1 target...
-Target //SecurityCustomPlugins/Return_Value_Read:CompliantTest1 up-to-date:
-  bazel-bin/SecurityCustomPlugins/Return_Value_Read/libCompliantTest1.jar
-INFO: Elapsed time: 0.251s, Critical Path: 0.06s
-prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :CompliantTest2
-INFO: Found 1 target...
-Target //SecurityCustomPlugins/Return_Value_Read:CompliantTest2 up-to-date:
-  bazel-bin/SecurityCustomPlugins/Return_Value_Read/libCompliantTest2.jar
-INFO: Elapsed time: 0.243s, Critical Path: 0.06s
+ERROR: /home/prajput/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read/BUILD:9:1: Building SecurityCustomPlugins/Return_Value_Read/libNonCompliantTest1.jar (1 source file) failed: Worker process sent response with exit code: 1.
+SecurityCustomPlugins/Return_Value_Read/NonCompliantTest1.java:17: error: [CaptureReturnValueofRead] Use an int to capture the return value of methods that read a character or byte
+         while((i = (byte) fis.read())!=-1) {
+                                   ^
+    (see http://errorprone.info/bugpattern/CaptureReturnValueofRead)
+Target //SecurityCustomPlugins/Return_Value_Read:NonCompliantTest1 failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 0.197s, Critical Path: 0.05s
 prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :NonCompliantTest2
 INFO: Found 1 target...
 ERROR: /home/prajput/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read/BUILD:9:1: Building SecurityCustomPlugins/Return_Value_Read/libNonCompliantTest2.jar (1 source file) failed: Worker process sent response with exit code: 1.
@@ -22,15 +22,15 @@ SecurityCustomPlugins/Return_Value_Read/NonCompliantTest2.java:16: error: [Captu
     (see http://errorprone.info/bugpattern/CaptureReturnValueofRead)
 Target //SecurityCustomPlugins/Return_Value_Read:NonCompliantTest2 failed to build
 Use --verbose_failures to see the command lines of failed build steps.
-INFO: Elapsed time: 0.387s, Critical Path: 0.19s
-prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :NonCompliantTest1
+INFO: Elapsed time: 0.186s, Critical Path: 0.05s
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :CompliantTest2
 INFO: Found 1 target...
-ERROR: /home/prajput/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read/BUILD:9:1: Building SecurityCustomPlugins/Return_Value_Read/libNonCompliantTest1.jar (1 source file) failed: Worker process sent response with exit code: 1.
-SecurityCustomPlugins/Return_Value_Read/NonCompliantTest1.java:17: error: [CaptureReturnValueofRead] Use an int to capture the return value of methods that read a character or byte
-         while((i = (byte) fis.read())!=-1) {
-                                   ^
-    (see http://errorprone.info/bugpattern/CaptureReturnValueofRead)
-Target //SecurityCustomPlugins/Return_Value_Read:NonCompliantTest1 failed to build
-Use --verbose_failures to see the command lines of failed build steps.
-INFO: Elapsed time: 0.241s, Critical Path: 0.07s
+Target //SecurityCustomPlugins/Return_Value_Read:CompliantTest2 up-to-date:
+  bazel-bin/SecurityCustomPlugins/Return_Value_Read/libCompliantTest2.jar
+INFO: Elapsed time: 0.169s, Critical Path: 0.00s
+prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$ bazel build :CompliantTest1
+INFO: Found 1 target...
+Target //SecurityCustomPlugins/Return_Value_Read:CompliantTest1 up-to-date:
+  bazel-bin/SecurityCustomPlugins/Return_Value_Read/libCompliantTest1.jar
+INFO: Elapsed time: 0.229s, Critical Path: 0.07s
 prajput@prajput:~/CS230-Secure_Code_Analysis/SecurityCustomPlugins/Return_Value_Read$

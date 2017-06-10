@@ -27,10 +27,7 @@ import com.sun.tools.javac.tree.JCTree.JCMethodInvocation;
 import com.sun.tools.javac.code.Type;
 import com.sun.source.tree.Tree;
 import com.sun.tools.javac.tree.JCTree;
-
-import com.sun.tools.javac.tree.JCTree.JCExpression;
-import com.sun.tools.javac.code.Symbol;
-import com.sun.source.tree.BinaryTree;
+import com.sun.source.tree.AssignmentTree;
 
 @AutoService(BugChecker.class)
 
@@ -61,11 +58,16 @@ public class CaptureReturnValueofRead extends BugChecker implements MethodInvoca
     Type returnType =
         ASTHelpers.getReturnType(((JCMethodInvocation) tree).getMethodSelect());
     Tree parent = state.getPath().getParentPath().getParentPath().getLeaf();
-    String expressionString = parent.toString();
 
-    if (expressionString.contains("(byte)") || expressionString.contains("(char)"))
+    if(parent instanceof AssignmentTree)
     {
-      return describeMatch(tree,SuggestedFix.builder().build());
+      AssignmentTree statement = ((AssignmentTree)parent);
+      Type variable = ASTHelpers.getType(statement.getVariable());
+
+      if (variable.toString() != "int")
+      {
+        return describeMatch(tree,SuggestedFix.builder().build());
+      }
     }
 
     return NO_MATCH;
