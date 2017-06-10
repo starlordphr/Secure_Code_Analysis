@@ -23,17 +23,307 @@ testexist:
 downloadfile-2:
 
 build-prepare:
-   [delete] Deleting directory /Users/lramjit/work/tomcat/output/build/temp
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/classes
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/bin
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/conf
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/lib
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/logs
     [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/temp
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/webapps
 
 compile-prepare:
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/java/org/apache/catalina/startup
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/webapps/docs
 
 download-validate:
 
 validate:
 
 compile:
-    [javac] Compiling 1078 source files to /Users/lramjit/work/tomcat/output/classes
+    [javac] Compiling 1588 source files to /Users/lramjit/work/tomcat/output/classes
+    [javac] /Users/lramjit/work/tomcat/java/javax/el/CompositeELResolver.java:30: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             clazz = Class.forName("javax.servlet.jsp.el.ScopedAttributeELResolver");
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'clazz = ScopedAttributeELResolver.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/javax/servlet/http/HttpServlet.java:496: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             clazz = Class.forName("org.apache.catalina.connector.RequestFacade");
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'clazz = RequestFacade.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/javax/servlet/jsp/el/ScopedAttributeELResolver.java:45: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             key = Class.forName("org.apache.el.parser.AstIdentifier");
+    [javac]                                ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'key = AstIdentifier.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/javax/websocket/CloseReason.java:65: warning: [ImmutableEnumChecker] enums should be immutable, and cannot have non-final fields
+    [javac]         private int code;
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac]   Did you mean 'private final int code;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/fileupload/MultipartStream.java:953: warning: [NarrowingCompoundAssignment] Compound assignments from long to int hide lossy casts
+    [javac]             head += res;
+    [javac]                  ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'head = (int) (head + res);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/connector/Request.java:2837: warning: [NarrowingCompoundAssignment] Compound assignments from long to int hide lossy casts
+    [javac]                                 postSize += part.getSize();
+    [javac]                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'postSize = (int) (postSize + part.getSize());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/UEncoder.java:38: warning: [ImmutableEnumChecker] enums should only have immutable fields, the declaration of type 'java.util.BitSet' is not annotated @Immutable
+    [javac]         private final BitSet safeChars;
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/CharChunk.java:490: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(String s) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/CharChunk.java:525: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(CharChunk cc) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/ByteChunk.java:617: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(String s) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/ByteChunk.java:655: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals( ByteChunk bb ) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/ByteChunk.java:680: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals( CharChunk cc ) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/MessageBytes.java:290: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(String s) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/MessageBytes.java:335: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(MessageBytes mb) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/Catalina.java:401: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             clazz = Class.forName("org.apache.catalina.ha.ClusterRuleSet");
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'clazz = ClusterRuleSet.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/connector/Connector.java:550: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 "org.apache.coyote.http11.Http11AprProtocol".equals(getProtocolHandlerClassName()) &&
+    [javac]                                                                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '("org.apache.coyote.http11.Http11AprProtocol".equals(getProtocolHandlerClassName()) &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/connector/Connector.java:555: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 "org.apache.coyote.ajp.AjpAprProtocol".equals(getProtocolHandlerClassName()) &&
+    [javac]                                                                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '("org.apache.coyote.ajp.AjpAprProtocol".equals(getProtocolHandlerClassName()) &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SSLHostConfig.java:227: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (certificates.size() == 1 &&
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((certificates.size() == 1 &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SocketWrapperBase.java:193: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         return --keepAliveLeft;
+    [javac]                ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SocketProcessorBase.java:40: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SSLHostConfigCertificate.java:249: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]         private final Set<Authentication> compatibleAuthentications;
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/openssl/ciphers/Cipher.java:4624: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]     private final Set<String> openSSLAltNames;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/openssl/ciphers/Cipher.java:4625: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]     private final Set<String> jsseNames;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:93: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     propertySource = (IntrospectionUtils.PropertySource) clazz.newInstance();
+    [javac]                                                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'propertySource = (IntrospectionUtils.PropertySource) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:1920: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 if (value != newValue) {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(value, newValue)) {' or 'if (!value.equals(newValue)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:1947: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (out == in) {
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(out, in)) {' or 'if (out.equals(in)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/AuthenticatorBase.java:557: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (jaspicProvider == null && !doAuthenticate(request, response) ||
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((jaspicProvider == null && !doAuthenticate(request, response)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/AuthenticatorBase.java:558: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     jaspicProvider != null &&
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(jaspicProvider != null &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/util/SessionIdGeneratorBase.java:223: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 result = (SecureRandom) clazz.newInstance();
+    [javac]                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'result = (SecureRandom) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/DigestAuthenticator.java:313: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (nonces) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/jaspic/AuthConfigFactoryImpl.java:199: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                         if (appContext != null && appContext.equals(wrapper.getAppContext()) ||
+    [javac]                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((appContext != null && appContext.equals(wrapper.getAppContext())) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/jaspic/AuthConfigFactoryImpl.java:200: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                                 layer != null && layer.equals(wrapper.getMessageLayer())) {
+    [javac]                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(layer != null && layer.equals(wrapper.getMessageLayer()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2846: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (exceptionPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2850: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (statusPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2868: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2968: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3000: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3047: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3303: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (exceptionPages) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3316: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized(exceptionPages) {
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3317: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized(statusPages) {
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3343: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3354: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3377: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3389: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3436: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3479: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3573: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (statusPages) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3857: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (exceptionPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3861: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (statusPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3879: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3907: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3937: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3966: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4322: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 } else if ((resource.isDirectory() && !canonicalPath.endsWith(File.separator) ||
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '} else if (((resource.isDirectory() && !canonicalPath.endsWith(File.separator)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4472: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterConfigs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4508: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterConfigs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:6067: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     urlPattern.startsWith("*.") && urlPattern.length() > 2 &&
+    [javac]                                                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(urlPattern.startsWith("*.") && urlPattern.length() > 2 &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/ApplicationPushBuilder.java:406: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             bytes[i] = (byte) (HexUtils.getDec(sequence.charAt(1 + 3 * i)) << 4 +
+    [javac]                                                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'bytes[i] = (byte) (HexUtils.getDec(sequence.charAt(1 + 3 * i)) << (4 +'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/AprLifecycleListener.java:174: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]         Method method = Class.forName("org.apache.tomcat.jni.Library")
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Method method = Library.class'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/AprLifecycleListener.java:281: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]         Class<?> clazz = Class.forName("org.apache.tomcat.jni.SSL");
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Class<?> clazz = SSL.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/JreMemoryLeakPreventionListener.java:242: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                         Class<?> clazz = Class.forName("sun.misc.GC");
+    [javac]                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Class<?> clazz = GC.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/JreMemoryLeakPreventionListener.java:346: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                         Class.forName("com.sun.jndi.ldap.LdapPoolManager");
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'requireNonNull(LdapPoolManager.class);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardPipeline.java:115: warning: [ShortCircuitBoolean] Prefer the short-circuiting boolean operators && and || to & and |.
+    [javac]             supported = supported & valve.isAsyncSupported();
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/ShortCircuitBoolean)
+    [javac]   Did you mean 'supported = supported && valve.isAsyncSupported();'?
     [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardServer.java:474: error: [RandomModInteger] Use Random.nextInt(int).  Random.nextInt() % n can have negative results
     [javac]                         expected += (random.nextInt() % 1024);
     [javac]                                                       ^
@@ -42,3 +332,9 @@ compile:
     [javac] Note: Some input files use or override a deprecated API.
     [javac] Note: Recompile with -Xlint:deprecation for details.
     [javac] 1 error
+    [javac] 56 warnings
+
+BUILD FAILED
+/Users/lramjit/work/tomcat/build.xml:659: Compile failed; see the compiler error output for details.
+
+Total time: 10 seconds
