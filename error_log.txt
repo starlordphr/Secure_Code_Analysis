@@ -1,0 +1,44 @@
+Buildfile: /Users/lramjit/work/tomcat/build.xml
+
+download-compile:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/tomcat-native-1.2.12/tomcat-native.tar.gz
+
+downloadfile-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/commons-daemon-1.0.15/commons-daemon-1.0.15.jar
+
+downloadgz-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/commons-daemon-1.0.15/commons-daemon-1.0.15-native-src.tar.gz
+
+downloadfile-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/ecj-4.6.3/ecj-4.6.3.jar
+
+downloadfile-2:
+
+build-prepare:
+   [delete] Deleting directory /Users/lramjit/work/tomcat/output/build/temp
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/temp
+
+compile-prepare:
+
+download-validate:
+
+validate:
+
+compile:
+    [javac] Compiling 1078 source files to /Users/lramjit/work/tomcat/output/classes
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardServer.java:474: error: [RandomModInteger] Use Random.nextInt(int).  Random.nextInt() % n can have negative results
+    [javac]                         expected += (random.nextInt() % 1024);
+    [javac]                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/RandomModInteger)
+    [javac]   Did you mean 'expected += (random.nextInt(1024));'?
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 1 error
