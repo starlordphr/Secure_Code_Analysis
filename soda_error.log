@@ -1,0 +1,454 @@
+Buildfile: /Users/lramjit/work/soda-for-java/build.xml
+
+check-ivy:
+
+probe-proxy:
+
+proxy:
+
+download-ivy:
+      [get] Getting: http://repo2.maven.org/maven2/org/apache/ivy/ivy/2.1.0-rc2/ivy-2.1.0-rc2.jar
+      [get] To: /Users/lramjit/.ant/lib/ivy.jar
+      [get] Not modified - so not downloaded
+
+init-ivy:
+
+resolve:
+[ivy:retrieve] :: Ivy 2.1.0-rc2 - 20090704004254 :: http://ant.apache.org/ivy/ ::
+[ivy:retrieve] :: loading settings :: url = jar:file:/Users/lramjit/.ant/lib/ivy.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[ivy:retrieve] :: resolving dependencies :: com.oracle#soda-dependencies;working@lramjit
+[ivy:retrieve] 	confs: [default]
+[ivy:retrieve] 	found org.glassfish#javax.json;1.0.4 in public
+[ivy:retrieve] 	found junit#junit;3.8.1 in public
+[ivy:retrieve] :: resolution report :: resolve 57ms :: artifacts dl 2ms
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   2   |   0   |   0   |   0   ||   2   |   0   |
+	---------------------------------------------------------------------
+[ivy:retrieve] :: retrieving :: com.oracle#soda-dependencies
+[ivy:retrieve] 	confs: [default]
+[ivy:retrieve] 	0 artifacts copied, 2 already retrieved (0kB/3ms)
+
+compile:
+
+-compile:
+    [mkdir] Created dir: /Users/lramjit/work/soda-for-java/build/classes
+     [echo] Checking Source Dependencies (depend.closure=false)
+     [echo] Compiling Source  with ${env.JAVA6HOME}
+    [javac] Since compiler setting isn't classic or modern, ignoring fork setting.
+    [javac] Since compiler setting isn't classic or modern, ignoring fork setting.
+    [javac] Compiling 58 source files to /Users/lramjit/work/soda-for-java/build/classes
+    [javac] Since compiler setting isn't classic or modern, ignoring fork setting.
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/util/LimitedInputStream.java:58: warning: [UnsynchronizedOverridesSynchronized] Unsynchronized method mark overrides synchronized method in FilterInputStream
+    [javac]   public void mark(int readLimit)
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/UnsynchronizedOverridesSynchronized)
+    [javac]   Did you mean 'public synchronized void mark(int readLimit)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/util/LimitedInputStream.java:65: warning: [UnsynchronizedOverridesSynchronized] Unsynchronized method reset overrides synchronized method in FilterInputStream
+    [javac]   public void reset()
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/UnsynchronizedOverridesSynchronized)
+    [javac]   Did you mean 'public synchronized void reset()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/logging/OracleLog.java:62: warning: [MissingOverride] run implements method in PrivilegedAction; expected @Override
+    [javac]             public String run() {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String run() {'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/parser/AndORNode.java:449: warning: [FallThrough] Execution may fall through from the previous case; add a `// fall through` comment before this line if it was deliberate
+    [javac]     default:
+    [javac]     ^
+    [javac]     (see http://errorprone.info/bugpattern/FallThrough)
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/parser/JsonQueryPath.java:91: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]     if (path == pobj.path) return(true);
+    [javac]              ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(path, pobj.path)) return(true);' or 'if (path.equals(pobj.path)) return(true);'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/parser/FindSpecification.java:334: warning: [Finally] If you return or throw from a finally, then values returned or thrown from the try-catch block will be ignored. Consider using try-with-resources instead.
+    [javac]           throw(new QueryException(QueryMessage.EX_SYNTAX_ERROR.get(), e));
+    [javac]           ^
+    [javac]     (see http://errorprone.info/bugpattern/Finally)
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/parser/ProjectionSpec.java:71: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]   class FieldStep
+    [javac]   ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'static class FieldStep'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/util/ComponentTime.java:189: warning: [MissingOverride] toString overrides method in Object; expected @Override
+    [javac]   public String toString()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String toString()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/util/ComponentTime.java:483: warning: [BoxedPrimitiveConstructor] valueOf or autoboxing provides better time and space performance
+    [javac]     return((new Long(timestamp)).hashCode());
+    [javac]             ^
+    [javac]     (see http://errorprone.info/bugpattern/BoxedPrimitiveConstructor)
+    [javac]   Did you mean 'return((timestamp).hashCode());'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/json/util/ComponentTime.java:486: warning: [MissingOverride] compareTo implements method in Comparable; expected @Override
+    [javac]   public int compareTo(ComponentTime t)
+    [javac]              ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public int compareTo(ComponentTime t)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/OracleBatchException.java:58: warning: [ChainingConstructorIgnoresParameter] The called constructor accepts a parameter with the same name and type as one of its caller's parameters, but its caller doesn't pass that parameter to it.  It's likely that it was intended to.
+    [javac]     this(message, errorCode);
+    [javac]         ^
+    [javac]     (see http://errorprone.info/bugpattern/ChainingConstructorIgnoresParameter)
+    [javac]   Did you mean 'this(message, processedCount);'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/OracleRDBMSClient.java:138: warning: [MissingOverride] getDatabase implements method in OracleClient; expected @Override
+    [javac]     public OracleDatabase getDatabase(Connection connection, boolean avoidTxnManagement)
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDatabase getDatabase(Connection connection, boolean avoidTxnManagement)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/cache/LRUCache.java:32: warning: [MissingOverride] removeEldestEntry overrides method in LinkedHashMap; expected @Override
+    [javac]   protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/CollectionDescriptor.java:446: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]     if (s1 == s2) return(true);
+    [javac]            ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(s1, s2)) return(true);' or 'if (s1.equals(s2)) return(true);'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:419: warning: [MissingOverride] findOne implements method in OracleCollection; expected @Override
+    [javac]   public OracleDocument findOne(String key)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument findOne(String key)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:435: warning: [MissingOverride] find implements method in OracleCollection; expected @Override
+    [javac]   public OracleOperationBuilder find()
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder find()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:498: warning: [MissingOverride] admin implements method in OracleCollection; expected @Override
+    [javac]   public OracleCollectionAdmin admin()
+    [javac]                                ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleCollectionAdmin admin()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1167: warning: [MissingOverride] getName implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public String getName()
+    [javac]                   ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getName()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1172: warning: [MissingOverride] drop implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void drop() throws OracleException
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void drop() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1177: warning: [MissingOverride] truncate implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void truncate() throws OracleException
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void truncate() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1182: warning: [MissingOverride] isHeterogeneous implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public boolean isHeterogeneous()
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public boolean isHeterogeneous()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1187: warning: [MissingOverride] isReadOnly implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public boolean isReadOnly()
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public boolean isReadOnly()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1197: warning: [MissingOverride] getMetadata implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public OracleDocument getMetadata()
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument getMetadata()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1208: warning: [MissingOverride] getDataGuide implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public OracleDocument getDataGuide() throws OracleException
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument getDataGuide() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1214: warning: [MissingOverride] createJsonSearchIndex implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void createJsonSearchIndex(String indexName) throws OracleException
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void createJsonSearchIndex(String indexName) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1220: warning: [MissingOverride] createJsonSearchIndex implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void createJsonSearchIndex(String indexName, String language)
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void createJsonSearchIndex(String indexName, String language)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1233: warning: [MissingOverride] createIndex implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void createIndex(OracleDocument indexSpecification)
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void createIndex(OracleDocument indexSpecification)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCollectionImpl.java:1267: warning: [MissingOverride] dropIndex implements method in OracleCollectionAdmin; expected @Override
+    [javac]     public void dropIndex(String indexName)
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void dropIndex(String indexName)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:325: warning: [MissingOverride] openCollection implements method in OracleDatabase; expected @Override
+    [javac]     public OracleCollection openCollection(String collectionName)
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleCollection openCollection(String collectionName)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:611: warning: [MissingOverride] createDocumentFromString implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromString(String content)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromString(String content)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:616: warning: [MissingOverride] createDocumentFromString implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromString(String key,
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromString(String key,'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:622: warning: [MissingOverride] createDocumentFromString implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromString(String key,
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromString(String key,'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:633: warning: [MissingOverride] createDocumentFromByteArray implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromByteArray(byte[] content)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromByteArray(byte[] content)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:638: warning: [MissingOverride] createDocumentFromByteArray implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromByteArray(String key,
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromByteArray(String key,'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:644: warning: [MissingOverride] createDocumentFromByteArray implements method in OracleDocumentFactory; expected @Override
+    [javac]   public OracleDocument createDocumentFromByteArray(String key,
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument createDocumentFromByteArray(String key,'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:943: warning: [MissingOverride] admin implements method in OracleDatabase; expected @Override
+    [javac]   public OracleDatabaseAdmin admin()
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDatabaseAdmin admin()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1330: warning: [MissingOverride] createCollection implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public OracleCollection createCollection(String collectionName)
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleCollection createCollection(String collectionName)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1336: warning: [MissingOverride] createCollection implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public OracleCollection createCollection(String collectionName,
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleCollection createCollection(String collectionName,'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1347: warning: [MissingOverride] getCollectionNames implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public List<String> getCollectionNames()
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public List<String> getCollectionNames()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1359: warning: [MissingOverride] getCollectionNames implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public List<String> getCollectionNames(int limit)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public List<String> getCollectionNames(int limit)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1372: warning: [MissingOverride] getCollectionNames implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public List<String> getCollectionNames(int limit, int skip)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public List<String> getCollectionNames(int limit, int skip)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1386: warning: [MissingOverride] getCollectionNames implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public List<String> getCollectionNames(int limit, String startName)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public List<String> getCollectionNames(int limit, String startName)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDatabaseImpl.java:1392: warning: [MissingOverride] getConnection implements method in OracleDatabaseAdmin; expected @Override
+    [javac]     public Connection getConnection()
+    [javac]                       ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public Connection getConnection()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/SODAUtils.java:102: warning: [MissingOverride] getSQL implements method in SQLTextCarrier; expected @Override
+    [javac]       public String getSQL()
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getSQL()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/SODAUtils.java:128: warning: [MissingOverride] getSQL implements method in SQLTextCarrier; expected @Override
+    [javac]       public String getSQL()
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getSQL()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:171: warning: [MissingOverride] getKey implements method in OracleDocument; expected @Override
+    [javac]   public String getKey()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getKey()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:176: warning: [MissingOverride] getLastModified implements method in OracleDocument; expected @Override
+    [javac]   public String getLastModified()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getLastModified()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:181: warning: [MissingOverride] getCreatedOn implements method in OracleDocument; expected @Override
+    [javac]   public String getCreatedOn()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getCreatedOn()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:186: warning: [MissingOverride] getVersion implements method in OracleDocument; expected @Override
+    [javac]   public String getVersion()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getVersion()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:191: warning: [MissingOverride] getContentAsByteArray implements method in OracleDocument; expected @Override
+    [javac]   public byte[] getContentAsByteArray() throws OracleException
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public byte[] getContentAsByteArray() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:235: warning: [MissingOverride] getContentAsString implements method in OracleDocument; expected @Override
+    [javac]   public String getContentAsString() throws OracleException
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getContentAsString() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:278: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]     if ((ctype == APPLICATION_JSON) || (ctype.equals(APPLICATION_JSON)))
+    [javac]                ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if ((APPLICATION_JSON.equals(ctype)) || (ctype.equals(APPLICATION_JSON)))'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:292: warning: [MissingOverride] isJSON implements method in OracleDocument; expected @Override
+    [javac]   public boolean isJSON()
+    [javac]                  ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public boolean isJSON()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:297: warning: [MissingOverride] getMediaType implements method in OracleDocument; expected @Override
+    [javac]   public String getMediaType()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getMediaType()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleDocumentImpl.java:305: warning: [MissingOverride] getContentLength implements method in OracleDocument; expected @Override
+    [javac]   public int getContentLength()
+    [javac]              ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public int getContentLength()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCursorImpl.java:83: warning: [MissingOverride] hasNext implements method in OracleCursor; expected @Override
+    [javac]   public boolean hasNext() throws OracleException
+    [javac]                  ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public boolean hasNext() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCursorImpl.java:103: warning: [MissingOverride] next implements method in OracleCursor; expected @Override
+    [javac]   public OracleDocument next() throws OracleException
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument next() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleCursorImpl.java:251: warning: [FallThrough] Execution may fall through from the previous case; add a `// fall through` comment before this line if it was deliberate
+    [javac]           case CollectionDescriptor.RAW_CONTENT:
+    [javac]           ^
+    [javac]     (see http://errorprone.info/bugpattern/FallThrough)
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:217: warning: [MissingOverride] key implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder key(String key) throws OracleException
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder key(String key) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:241: warning: [MissingOverride] keys implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder keys(Set<String> keys)
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder keys(Set<String> keys)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:366: warning: [MissingOverride] filter implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder filter(OracleDocument filterSpec)
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder filter(OracleDocument filterSpec)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:430: warning: [MissingOverride] version implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder version(String version) throws OracleException
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder version(String version) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:510: warning: [MissingOverride] getCursor implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleCursor getCursor() throws OracleException
+    [javac]                       ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleCursor getCursor() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:945: warning: [MissingOverride] replaceOneAndGet implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleDocument replaceOneAndGet(OracleDocument document)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument replaceOneAndGet(OracleDocument document)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1039: warning: [MissingOverride] replaceOne implements method in OracleOperationBuilder; expected @Override
+    [javac]   public boolean replaceOne(OracleDocument document)
+    [javac]                  ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public boolean replaceOne(OracleDocument document)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1080: warning: [MissingOverride] remove implements method in OracleOperationBuilder; expected @Override
+    [javac]   public int remove() throws OracleException
+    [javac]              ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public int remove() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1117: warning: [MissingOverride] limit implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder limit(int limit) throws OracleException
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder limit(int limit) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1130: warning: [MissingOverride] skip implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder skip(long skip) throws OracleException
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder skip(long skip) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1143: warning: [MissingOverride] headerOnly implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleOperationBuilder headerOnly()
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleOperationBuilder headerOnly()'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1230: warning: [MissingOverride] count implements method in OracleOperationBuilder; expected @Override
+    [javac]   public long count() throws OracleException
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public long count() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/OracleOperationBuilderImpl.java:1271: warning: [MissingOverride] getOne implements method in OracleOperationBuilder; expected @Override
+    [javac]   public OracleDocument getOne() throws OracleException
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument getOne() throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:606: warning: [MissingOverride] insert implements method in OracleCollection; expected @Override
+    [javac]   public void insert(OracleDocument document) throws OracleException
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void insert(OracleDocument document) throws OracleException'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:617: warning: [MissingOverride] insertAndGet implements method in OracleCollection; expected @Override
+    [javac]   public OracleDocument insertAndGet(OracleDocument document)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument insertAndGet(OracleDocument document)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:843: warning: [MissingOverride] save implements method in OracleCollection; expected @Override
+    [javac]   public void save(OracleDocument document)
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void save(OracleDocument document)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:852: warning: [MissingOverride] saveAndGet implements method in OracleCollection; expected @Override
+    [javac]   public OracleDocument saveAndGet(OracleDocument document)
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocument saveAndGet(OracleDocument document)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:873: warning: [MissingOverride] insert implements method in OracleCollection; expected @Override
+    [javac]   public void insert(Iterator<OracleDocument> documents)
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public void insert(Iterator<OracleDocument> documents)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:885: warning: [MissingOverride] insertAndGet implements method in OracleCollection; expected @Override
+    [javac]   public List<OracleDocument> insertAndGet(Iterator<OracleDocument> documents)
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public List<OracleDocument> insertAndGet(Iterator<OracleDocument> documents)'?
+    [javac] /Users/lramjit/work/soda-for-java/src/oracle/soda/rdbms/impl/TableCollectionImpl.java:1550: warning: [MissingOverride] findFragment implements method in OracleCollectionImpl; expected @Override
+    [javac]   public OracleDocumentFragmentImpl findFragment(String key, long offset, int length)
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public OracleDocumentFragmentImpl findFragment(String key, long offset, int length)'?
+    [javac] 78 warnings
+    [javac] Creating empty /Users/lramjit/work/soda-for-java/build/classes/oracle/soda/rdbms/package-info.class
+    [javac] Creating empty /Users/lramjit/work/soda-for-java/build/classes/oracle/soda/package-info.class
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package oracle.soda...
+  [javadoc] Loading source files for package oracle.soda.rdbms...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Creating destination directory: "/Users/lramjit/work/soda-for-java/build/docs/"
+  [javadoc] Standard Doclet version 1.8.0_102
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+
+-clean-jars:
+
+archive:
+     [echo] Archiving
+      [jar] Building jar: /Users/lramjit/work/soda-for-java/lib/orajsoda-1.0.4.jar
+
+all:
+
+BUILD SUCCESSFUL
+Total time: 4 seconds
