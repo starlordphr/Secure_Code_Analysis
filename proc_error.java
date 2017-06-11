@@ -4,7 +4,7 @@ public class proc_error {
 
 public static void main(String[] args) throws IOException {
     File dir = new File(".");
-	String fileName = "tomcat_error_log.txt";
+	String fileName = "ivy_error_log.txt";
     String source = dir.getCanonicalPath() + File.separator + fileName;
     String dest = dir.getCanonicalPath() + File.separator + fileName + "_output.txt";
 
@@ -45,7 +45,7 @@ InsecureCipherMode
 
     while ((aLine = in.readLine()) != null) {
         //Process each line and add output to output.txt file
-		if(aLine.contains("warning") & !aLine.contains("warnings"))
+		if(aLine.contains("warning") & aLine.contains(".java"))
 		{
 			if(aLine.contains("ExtendedReturnValueIgnoredCheck"))
 			{
