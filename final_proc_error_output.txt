@@ -1,0 +1,16 @@
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> javac proc_error.java
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> java proc_error
+error_log.txt:
+ExtendedReturnValueIgnoredCheck: 0, InsecureRandomCheck: 0, NPEAndParentsCaughtCheck: 0, CaptureReturnValueofRead: 0, SQLUnsanitizedDataCheck: 0, ConstantOverflow: 0, ReturnValueIgnored: 0, MustBeClosed: 0, InsecureCipherMode: 0, FailSecurelyCheck: 0
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> javac proc_error.java
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> java proc_error
+clojure_error.txt:
+ExtendedReturnValueIgnoredCheck: 0, InsecureRandomCheck: 0, NPEAndParentsCaughtCheck: 0, CaptureReturnValueofRead: 0, SQLUnsanitizedDataCheck: 0, ConstantOverflow: 0, ReturnValueIgnored: 0, MustBeClosed: 0, InsecureCipherMode: 0, FailSecurelyCheck: 0
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> javac proc_error.java
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> java proc_error
+soda_error.txt:
+ExtendedReturnValueIgnoredCheck: 0, InsecureRandomCheck: 0, NPEAndParentsCaughtCheck: 0, CaptureReturnValueofRead: 0, SQLUnsanitizedDataCheck: 0, ConstantOverflow: 0, ReturnValueIgnored: 0, MustBeClosed: 0, InsecureCipherMode: 0, FailSecurelyCheck: 0
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> javac proc_error.java
+PS C:\Users\pudgy\Desktop\CS 230\Project\LogsAndOutputs> java proc_error
+tomcat_error_log.txt:
+ExtendedReturnValueIgnoredCheck: 0, InsecureRandomCheck: 0, NPEAndParentsCaughtCheck: 0, CaptureReturnValueofRead: 0, SQLUnsanitizedDataCheck: 0, ConstantOverflow: 0, ReturnValueIgnored: 0, MustBeClosed: 0, InsecureCipherMode: 0, FailSecurelyCheck: 0

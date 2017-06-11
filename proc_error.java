@@ -4,9 +4,9 @@ public class proc_error {
 
 public static void main(String[] args) throws IOException {
     File dir = new File(".");
-
-    String source = dir.getCanonicalPath() + File.separator + "custom_error_log.txt";
-    String dest = dir.getCanonicalPath() + File.separator + "output.txt";
+	String fileName = "tomcat_error_log.txt";
+    String source = dir.getCanonicalPath() + File.separator + fileName;
+    String dest = dir.getCanonicalPath() + File.separator + fileName + "_output.txt";
 
     File fin = new File(source);
     FileInputStream fis = new FileInputStream(fin);
@@ -17,10 +17,81 @@ public static void main(String[] args) throws IOException {
 
     String aLine = null;
 	int number = 1;
+
+
+/*
+Checks we look for:
+FailSecurelyCheck
+ExtendedReturnValueIgnoredCheck
+InsecureRandomCheck
+NPEAndParentsCaughtCheck
+CaptureReturnValueofRead
+SQLUnsanitizedDataCheck
+ConstantOverflow
+ReturnValueIgnored
+MustBeClosed
+InsecureCipherMode
+*/
+	int FailSecurelyCheck = 0;
+	int ExtendedReturnValueIgnoredCheck = 0;
+	int InsecureRandomCheck = 0;
+	int NPEAndParentsCaughtCheck = 0;
+	int CaptureReturnValueofRead = 0;
+	int SQLUnsanitizedDataCheck = 0;
+	int ConstantOverflow = 0;
+	int ReturnValueIgnored = 0;
+	int MustBeClosed = 0;
+	int InsecureCipherMode = 0;
+
     while ((aLine = in.readLine()) != null) {
         //Process each line and add output to output.txt file
-		if(aLine.contains("warning"))
+		if(aLine.contains("warning") & !aLine.contains("warnings"))
 		{
+			if(aLine.contains("ExtendedReturnValueIgnoredCheck"))
+			{
+				ExtendedReturnValueIgnoredCheck++;
+			}
+			else if(aLine.contains("InsecureRandomCheck"))
+			{
+				InsecureRandomCheck++;
+			}
+			else if(aLine.contains("NPEAndParentsCaughtCheck"))
+			{
+				NPEAndParentsCaughtCheck++;
+			}
+			else if(aLine.contains("CaptureReturnValueofRead"))
+			{
+				CaptureReturnValueofRead++;
+			}
+			else if(aLine.contains("SQLUnsanitizedDataCheck"))
+			{
+				SQLUnsanitizedDataCheck++;
+			}
+			else if(aLine.contains("SQLUnsanitizedDataCheck"))
+			{
+				SQLUnsanitizedDataCheck++;
+			}
+			else if(aLine.contains("ConstantOverflow"))
+			{
+				ConstantOverflow++;
+			}
+			else if(aLine.contains("ReturnValueIgnored"))
+			{
+				ReturnValueIgnored++;
+			}
+			else if(aLine.contains("MustBeClosed"))
+			{
+				MustBeClosed++;
+			}
+			else if(aLine.contains("InsecureCipherMode"))
+			{
+				InsecureCipherMode++;
+			}
+			else if(aLine.contains("FailSecurelyCheck"))
+			{
+				FailSecurelyCheck++;
+			}
+			
 			out.write(number + ".  ");
 			int i = 0;
 			int ccount = 0;
@@ -52,9 +123,21 @@ public static void main(String[] args) throws IOException {
 			out.newLine();
 			number++;
 			out.flush();
+			
 		}
     }
-
+	System.out.println(fileName + ":");
+	System.out.println("ExtendedReturnValueIgnoredCheck: " + ExtendedReturnValueIgnoredCheck
+	+ ", InsecureRandomCheck: " + InsecureRandomCheck
+	+ ", NPEAndParentsCaughtCheck: " + NPEAndParentsCaughtCheck
+	+ ", CaptureReturnValueofRead: " + CaptureReturnValueofRead
+	+ ", SQLUnsanitizedDataCheck: " + SQLUnsanitizedDataCheck
+	+ ", ConstantOverflow: " + ConstantOverflow
+	+ ", ReturnValueIgnored: " + ReturnValueIgnored
+	+ ", MustBeClosed: " + MustBeClosed
+	+ ", InsecureCipherMode: " + InsecureCipherMode
+	+ ", FailSecurelyCheck: " + FailSecurelyCheck);
+	
     // do not forget to close the buffer reader
     in.close();
 
