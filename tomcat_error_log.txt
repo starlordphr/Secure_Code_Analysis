@@ -1,0 +1,1786 @@
+Buildfile: /Users/lramjit/work/tomcat/build.xml
+
+download-compile:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/tomcat-native-1.2.12/tomcat-native.tar.gz
+
+downloadfile-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/commons-daemon-1.0.15/commons-daemon-1.0.15.jar
+
+downloadgz-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/commons-daemon-1.0.15/commons-daemon-1.0.15-native-src.tar.gz
+
+downloadfile-2:
+
+testexist:
+     [echo] Testing  for /Users/lramjit/tomcat-build-libs/ecj-4.6.3/ecj-4.6.3.jar
+
+downloadfile-2:
+
+build-prepare:
+   [delete] Deleting directory /Users/lramjit/work/tomcat/output/build/temp
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/temp
+
+compile-prepare:
+
+download-validate:
+
+validate:
+
+compile:
+    [javac] Compiling 1268 source files to /Users/lramjit/work/tomcat/output/classes
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/AuthenticatorBase.java:557: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (jaspicProvider == null && !doAuthenticate(request, response) ||
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((jaspicProvider == null && !doAuthenticate(request, response)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/AuthenticatorBase.java:558: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     jaspicProvider != null &&
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(jaspicProvider != null &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/util/SessionIdGeneratorBase.java:223: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 result = (SecureRandom) clazz.newInstance();
+    [javac]                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'result = (SecureRandom) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/DigestAuthenticator.java:313: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (nonces) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/jaspic/AuthConfigFactoryImpl.java:199: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                         if (appContext != null && appContext.equals(wrapper.getAppContext()) ||
+    [javac]                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((appContext != null && appContext.equals(wrapper.getAppContext())) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/authenticator/jaspic/AuthConfigFactoryImpl.java:200: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                                 layer != null && layer.equals(wrapper.getMessageLayer())) {
+    [javac]                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(layer != null && layer.equals(wrapper.getMessageLayer()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2846: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (exceptionPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2850: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (statusPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2868: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:2968: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3000: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3047: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3303: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (exceptionPages) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3316: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized(exceptionPages) {
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3317: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized(statusPages) {
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3343: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3354: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3377: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3389: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3436: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3479: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3573: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (statusPages) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3857: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (exceptionPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3861: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (statusPages) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3879: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterDefs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3907: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (messageDestinations) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3937: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (mimeMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:3966: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (roleMappings) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4322: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 } else if ((resource.isDirectory() && !canonicalPath.endsWith(File.separator) ||
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '} else if (((resource.isDirectory() && !canonicalPath.endsWith(File.separator)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4472: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterConfigs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:4508: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (filterConfigs) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardContext.java:6067: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     urlPattern.startsWith("*.") && urlPattern.length() > 2 &&
+    [javac]                                                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(urlPattern.startsWith("*.") && urlPattern.length() > 2 &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/ApplicationPushBuilder.java:406: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             bytes[i] = (byte) (HexUtils.getDec(sequence.charAt(1 + 3 * i)) << 4 +
+    [javac]                                                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'bytes[i] = (byte) (HexUtils.getDec(sequence.charAt(1 + 3 * i)) << (4 +'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/AprLifecycleListener.java:174: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]         Method method = Class.forName("org.apache.tomcat.jni.Library")
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Method method = Library.class'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/AprLifecycleListener.java:281: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]         Class<?> clazz = Class.forName("org.apache.tomcat.jni.SSL");
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Class<?> clazz = SSL.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/JreMemoryLeakPreventionListener.java:242: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                         Class<?> clazz = Class.forName("sun.misc.GC");
+    [javac]                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Class<?> clazz = GC.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/JreMemoryLeakPreventionListener.java:346: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                         Class.forName("com.sun.jndi.ldap.LdapPoolManager");
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'requireNonNull(LdapPoolManager.class);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardPipeline.java:115: warning: [ShortCircuitBoolean] Prefer the short-circuiting boolean operators && and || to & and |.
+    [javac]             supported = supported & valve.isAsyncSupported();
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/ShortCircuitBoolean)
+    [javac]   Did you mean 'supported = supported && valve.isAsyncSupported();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardServer.java:474: warning: [RandomModInteger] Use Random.nextInt(int).  Random.nextInt() % n can have negative results
+    [javac]                         expected += (random.nextInt() % 1024);
+    [javac]                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/RandomModInteger)
+    [javac]   Did you mean 'expected += (random.nextInt(1024));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardService.java:421: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (engine) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardService.java:470: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (engine) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardWrapper.java:795: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                     synchronized (instancePool) {
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardWrapper.java:813: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (instancePool) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardWrapper.java:862: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (instancePool) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/core/StandardWrapperValve.java:291: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         processingTime += time;
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/filters/CorsFilter.java:650: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if ("http".equals(scheme) && port != 80 ||
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (("http".equals(scheme) && port != 80) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/filters/CorsFilter.java:651: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 "https".equals(scheme) && port != 443) {
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '("https".equals(scheme) && port != 443)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/filters/CsrfPreventionFilterBase.java:81: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             randomSource = (Random) clazz.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'randomSource = (Random) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:93: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     propertySource = (IntrospectionUtils.PropertySource) clazz.newInstance();
+    [javac]                                                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'propertySource = (IntrospectionUtils.PropertySource) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:1920: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 if (value != newValue) {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(value, newValue)) {' or 'if (!value.equals(newValue)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/Digester.java:1947: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (out == in) {
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(out, in)) {' or 'if (out.equals(in)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/tipis/AbstractReplicatedMap.java:1409: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             buf.append(new String(mapId));
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'buf.append(new String(mapId, UTF_8));' or 'buf.append(new String(mapId, Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ha/backend/TcpSender.java:106: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     connectionReaders[i] = new BufferedReader(new InputStreamReader(connections[i].getInputStream()));
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'connectionReaders[i] = new BufferedReader(new InputStreamReader(connections[i].getInputStream(), UTF_8));' or 'connectionReaders[i] = new BufferedReader(new InputStreamReader(connections[i].getInputStream(), Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ha/backend/TcpSender.java:107: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     connectionWriters[i] = new BufferedWriter(new OutputStreamWriter(connections[i].getOutputStream()));
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'connectionWriters[i] = new BufferedWriter(new OutputStreamWriter(connections[i].getOutputStream(), UTF_8));' or 'connectionWriters[i] = new BufferedWriter(new OutputStreamWriter(connections[i].getOutputStream(), Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ha/session/ClusterManagerBase.java:156: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 SessionIdGenerator copyIdGenerator = sessionIdGeneratorClass.newInstance();
+    [javac]                                                                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'SessionIdGenerator copyIdGenerator = sessionIdGeneratorClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/ManagerBase.java:380: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 sessionIdGenerator = sessionIdGeneratorClass.newInstance();
+    [javac]                                                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'sessionIdGenerator = sessionIdGeneratorClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/ManagerBase.java:821: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                 duplicates++;
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/StandardSession.java:1727: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (listeners) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/loader/WebappClassLoaderBase.java:921: warning: [URLEqualsHashCode] Creation of a Set/HashSet/HashMap of java.net.URL. equals() and hashCode() of java.net.URL class make blocking internet connections.
+    [javac]         LinkedHashSet<URL> result = new LinkedHashSet<>();
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/URLEqualsHashCode)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/loader/WebappClassLoaderBase.java:1573: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             Object obj = lpClass.newInstance();
+    [javac]                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object obj = lpClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/loader/WebappClassLoaderBase.java:2053: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                 Class.forName("sun.rmi.transport.Target");
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Target.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/loader/WebappClassLoaderBase.java:2062: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                 Class.forName("sun.rmi.transport.ObjectTable");
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'ObjectTable.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/Registry.java:714: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         ModelerSource ds=(ModelerSource)c.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'ModelerSource ds=(ModelerSource)c.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/ManagedBean.java:321: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 mbean = (BaseModelMBean) clazz.newInstance();
+    [javac]                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'mbean = (BaseModelMBean) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseNotificationBroadcaster.java:80: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (entries) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseNotificationBroadcaster.java:138: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (entries) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseNotificationBroadcaster.java:158: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (entries) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/manager/StatusTransformer.java:161: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             Method method = Class.forName("org.apache.tomcat.jni.OS")
+    [javac]                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Method method = OS.class'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/mbeans/BaseCatalinaMBean.java:47: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             return Class.forName(type).newInstance();
+    [javac]                                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'return Class.forName(type).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/mbeans/MBeanFactory.java:634: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         Valve valve = (Valve) Class.forName(className).newInstance();
+    [javac]                                                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Valve valve = (Valve) Class.forName(className).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:867: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (!denyfromall && allRolesMode != AllRolesMode.STRICT_MODE &&
+    [javac]                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!denyfromall && !Objects.equals(allRolesMode, AllRolesMode.STRICT_MODE) &&' or 'if (!denyfromall && !allRolesMode.equals(AllRolesMode.STRICT_MODE) &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:878: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                     if (allRolesMode == AllRolesMode.AUTH_ONLY_MODE) {
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(allRolesMode, AllRolesMode.AUTH_ONLY_MODE)) {' or 'if (allRolesMode.equals(AllRolesMode.AUTH_ONLY_MODE)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:888: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                     if (roles.length == 0 && allRolesMode == AllRolesMode.STRICT_AUTH_ONLY_MODE) {
+    [javac]                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (roles.length == 0 && Objects.equals(allRolesMode, AllRolesMode.STRICT_AUTH_ONLY_MODE)) {' or 'if (roles.length == 0 && allRolesMode.equals(AllRolesMode.STRICT_AUTH_ONLY_MODE)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:1282: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                 md.update(credentials.getBytes());
+    [javac]                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'md.update(credentials.getBytes(UTF_8));' or 'md.update(credentials.getBytes(Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:1405: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     handler = clazz.newInstance();
+    [javac]                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'handler = clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:1417: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 handler = (DigestCredentialHandlerBase) clazz.newInstance();
+    [javac]                                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'handler = (DigestCredentialHandlerBase) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/RealmBase.java:1551: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             return clazz.newInstance();
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'return clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/DataSourceRealm.java:499: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (allRolesMode != AllRolesMode.STRICT_MODE && !isRoleStoreDefined()) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(allRolesMode, AllRolesMode.STRICT_MODE) && !isRoleStoreDefined()) {' or 'if (!allRolesMode.equals(AllRolesMode.STRICT_MODE) && !isRoleStoreDefined()) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JAASRealm.java:623: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                         Class.forName("com.sun.security.auth.login.ConfigFile");
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'ConfigFile.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JAASMemoryLoginModule.java:246: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 credentialHandler = (CredentialHandler) clazz.newInstance();
+    [javac]                                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'credentialHandler = (CredentialHandler) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JDBCRealm.java:574: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (allRolesMode != AllRolesMode.STRICT_MODE && !isRoleStoreDefined()) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(allRolesMode, AllRolesMode.STRICT_MODE) && !isRoleStoreDefined()) {' or 'if (!allRolesMode.equals(AllRolesMode.STRICT_MODE) && !isRoleStoreDefined()) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JDBCRealm.java:642: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 driver = (Driver) clazz.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'driver = (Driver) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JNDIRealm.java:1225: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return clazz.newInstance();
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'IllegalAccessException, InvocationTargetException, NoSuchMethodException {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/realm/JNDIRealm.java:2085: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             valueString = new String((byte[]) value);
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'valueString = new String((byte[]) value, UTF_8);' or 'valueString = new String((byte[]) value, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/security/SecurityClassLoad.java:117: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         clazz.newInstance();
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/security/SecurityClassLoad.java:180: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         clazz.newInstance();
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/CGIServlet.java:1524: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     (new InputStreamReader(proc.getErrorStream()));
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean '(new InputStreamReader(proc.getErrorStream(), UTF_8));' or '(new InputStreamReader(proc.getErrorStream(), Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/CGIServlet.java:1538: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     new BufferedReader(new InputStreamReader(cgiHeaderStream));
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'new BufferedReader(new InputStreamReader(cgiHeaderStream, UTF_8));' or 'new BufferedReader(new InputStreamReader(cgiHeaderStream, Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/CGIServlet.java:1748: warning: [InputStreamSlowMultibyteRead] Please also override int read(byte[], int, int), otherwise multi-byte reads from this input stream are likely to be slow.
+    [javac]         public int read() throws IOException {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/InputStreamSlowMultibyteRead)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/DefaultServlet.java:960: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 ranges == FULL ) {
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'Objects.equals(ranges, FULL) ) {' or 'ranges.equals(FULL) ) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/DefaultServlet.java:1725: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                         reader = new InputStreamReader(is);
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'reader = new InputStreamReader(is, UTF_8);' or 'reader = new InputStreamReader(is, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/servlets/DefaultServlet.java:2145: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             reader = new InputStreamReader(resourceInputStream);
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'reader = new InputStreamReader(resourceInputStream, UTF_8);' or 'reader = new InputStreamReader(resourceInputStream, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/JDBCStore.java:891: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 driver = (Driver) clazz.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'driver = (Driver) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/StandardManager.java:208: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (sessions) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/session/StandardManager.java:303: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (sessions) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/ExpressionParseTree.java:212: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]     private abstract class Node {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'private abstract static class Node {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/SSIExec.java:62: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                         new InputStreamReader(proc.getInputStream()));
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'new InputStreamReader(proc.getInputStream(), UTF_8));' or 'new InputStreamReader(proc.getInputStream(), Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/SSIExec.java:64: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                         new InputStreamReader(proc.getErrorStream()));
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'new InputStreamReader(proc.getErrorStream(), UTF_8));' or 'new InputStreamReader(proc.getErrorStream(), Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/SSIFilter.java:167: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             res.getWriter().write(new String(bytes));
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'res.getWriter().write(new String(bytes, UTF_8));' or 'res.getWriter().write(new String(bytes, Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/SSIServlet.java:210: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             isr = new InputStreamReader(resourceInputStream);
+    [javac]                   ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'isr = new InputStreamReader(resourceInputStream, UTF_8);' or 'isr = new InputStreamReader(resourceInputStream, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/ssi/SSIServletExternalResolver.java:538: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                 retVal = new String( bytes );
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'retVal = new String( bytes, UTF_8 );' or 'retVal = new String( bytes, Charset.defaultCharset() );'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/ClassLoaderFactory.java:84: warning: [URLEqualsHashCode] Creation of a Set/HashSet/HashMap of java.net.URL. equals() and hashCode() of java.net.URL class make blocking internet connections.
+    [javac]         Set<URL> set = new LinkedHashSet<>();
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/URLEqualsHashCode)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/ClassLoaderFactory.java:159: warning: [URLEqualsHashCode] Creation of a Set/HashSet/HashMap of java.net.URL. equals() and hashCode() of java.net.URL class make blocking internet connections.
+    [javac]         Set<URL> set = new LinkedHashSet<>();
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/URLEqualsHashCode)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/Bootstrap.java:269: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         Object startupInstance = startupClass.newInstance();
+    [javac]                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object startupInstance = startupClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/Bootstrap.java:276: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]         paramTypes[0] = Class.forName("java.lang.ClassLoader");
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'paramTypes[0] = ClassLoader.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SSLHostConfigCertificate.java:249: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]         private final Set<Authentication> compatibleAuthentications;
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SSLHostConfig.java:227: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (certificates.size() == 1 &&
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((certificates.size() == 1 &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/openssl/ciphers/Cipher.java:4624: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]     private final Set<String> openSSLAltNames;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/openssl/ciphers/Cipher.java:4625: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]     private final Set<String> jsseNames;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/ContextConfig.java:402: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 authenticator = (Valve) authenticatorClass.newInstance();
+    [javac]                                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'authenticator = (Valve) authenticatorClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/UserConfig.java:292: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             database = (UserDatabase) clazz.newInstance();
+    [javac]                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'database = (UserDatabase) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/UserConfig.java:344: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]               (Context) clazz.newInstance();
+    [javac]                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(Context) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/UserConfig.java:349: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 (LifecycleListener) clazz.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/HostConfig.java:551: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 (LifecycleListener) clazz.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/HostConfig.java:856: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 context = (Context) Class.forName(contextClass).newInstance();
+    [javac]                                                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'context = (Context) Class.forName(contextClass).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/HostConfig.java:933: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 (LifecycleListener) clazz.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/HostConfig.java:1083: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 context = (Context) Class.forName(contextClass).newInstance();
+    [javac]                                                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'context = (Context) Class.forName(contextClass).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/HostConfig.java:1088: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 (LifecycleListener) clazz.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/LifecycleListenerRule.java:128: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             (LifecycleListener) clazz.newInstance();
+    [javac]                                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/PasswdUserDatabase.java:102: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         try (BufferedReader reader = new BufferedReader(new FileReader(PASSWORD_FILE))) {
+    [javac]                                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'try (BufferedReader reader = Files.newBufferedReader(Paths.get(PASSWORD_FILE), UTF_8)) {' or 'try (BufferedReader reader = Files.newBufferedReader(Paths.get(PASSWORD_FILE), Charset.defaultCharset())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/Tomcat.java:570: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             listener = (LifecycleListener) clazz.newInstance();
+    [javac]                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'listener = (LifecycleListener) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/Tomcat.java:986: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     instance = existing.getClass().newInstance();
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'instance = existing.getClass().getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/startup/WebappServiceLoader.java:189: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 services.add(serviceType.cast(clazz.newInstance()));
+    [javac]                                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'services.add(serviceType.cast(clazz.getDeclaredConstructor().newInstance()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/storeconfig/StoreAppender.java:326: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return bean.getClass().newInstance();
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'IllegalAccessException, InvocationTargetException, NoSuchMethodException {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/storeconfig/StoreConfigLifecycleListener.java:87: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             storeConfig = (IStoreConfig) clazz.newInstance();
+    [javac]                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'storeConfig = (IStoreConfig) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/storeconfig/StoreFactoryRule.java:124: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return clazz.newInstance();
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.java:67: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (membership) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/DomainFilterInterceptor.java:82: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (membership) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/NonBlockingCoordinator.java:233: warning: [WaitNotInLoop] Because of spurious wakeups, wait(long) must always be called in a loop
+    [javac]                     electionMutex.wait(waitForCoordMsgTimeout);
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/WaitNotInLoop)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/TcpFailureDetector.java:125: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (membership) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/TcpFailureDetector.java:148: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (membership) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/TcpFailureDetector.java:161: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (membership) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/group/interceptors/TcpFailureDetector.java:225: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (membership) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/membership/Constants.java:31: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         System.out.println(Arrays.toString("TRIBES-B".getBytes()));
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'System.out.println(Arrays.toString("TRIBES-B".getBytes(UTF_8)));' or 'System.out.println(Arrays.toString("TRIBES-B".getBytes(Charset.defaultCharset())));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/membership/Constants.java:32: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         System.out.println(Arrays.toString("TRIBES-E".getBytes()));
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'System.out.println(Arrays.toString("TRIBES-E".getBytes(UTF_8)));' or 'System.out.println(Arrays.toString("TRIBES-E".getBytes(Charset.defaultCharset())));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/membership/McastServiceImpl.java:662: warning: [ShortCircuitBoolean] Prefer the short-circuiting boolean operators && and || to & and |.
+    [javac]                     if (stopService() & startService()) {
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ShortCircuitBoolean)
+    [javac]   Did you mean 'if (stopService() && startService()) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/transport/PooledSender.java:155: warning: [ShortCircuitBoolean] Prefer the short-circuiting boolean operators && and || to & and |.
+    [javac]                 result = result | list[i].keepalive();
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ShortCircuitBoolean)
+    [javac]   Did you mean 'result = result || list[i].keepalive();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/transport/bio/BioSender.java:130: warning: [Finally] If you return or throw from a finally, then values returned or thrown from the try-catch block will be ignored. Consider using try-with-resources instead.
+    [javac]             if ( exception != null ) throw exception;
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/Finally)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/util/UUIDGenerator.java:66: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]         into[6+offset] &= 0x0F;
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'into[6+offset] = (byte) (into[6+offset] & 0x0F);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/util/UUIDGenerator.java:67: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]         into[6+offset] |= (UUID_VERSION << 4);
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'into[6+offset] = (byte) (into[6+offset] | (UUID_VERSION << 4));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/util/UUIDGenerator.java:68: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]         into[8+offset] &= 0x3F; //0011 1111
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'into[8+offset] = (byte) (into[8+offset] & 0x3F);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/tribes/util/UUIDGenerator.java:69: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]         into[8+offset] |= 0x80; //1000 0000
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'into[8+offset] = (byte) (into[8+offset] | 0x80);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/AbstractAccessLogValve.java:311: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                     synchronized(parent) {
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/AbstractAccessLogValve.java:633: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 && null != request.getRequest().getAttribute(condition)
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '|| (condition != null'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/AbstractAccessLogValve.java:635: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 && null == request.getRequest().getAttribute(conditionIf)) {
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '|| (conditionIf != null'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/JDBCAccessLogValve.java:571: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 driver = (Driver) clazz.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'driver = (Driver) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/rewrite/Substitution.java:28: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]     public abstract class SubstitutionElement {
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'public abstract static class SubstitutionElement {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/valves/rewrite/RewriteValve.java:653: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     map = (RewriteMap) (Class.forName(rewriteMapClassName).newInstance());
+    [javac]                                                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'map = (RewriteMap) (Class.forName(rewriteMapClassName).getDeclaredConstructor().newInstance());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/webresources/StandardRoot.java:279: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 if (!useClassLoaderResources &&  !webResourceSet.getClassLoaderOnly() ||
+    [javac]                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((!useClassLoaderResources &&  !webResourceSet.getClassLoaderOnly()) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/webresources/StandardRoot.java:280: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                         useClassLoaderResources && !webResourceSet.getStaticOnly()) {
+    [javac]                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(useClassLoaderResources && !webResourceSet.getStaticOnly())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/catalina/webresources/FileResource.java:231: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             String str = new String(result);
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'String str = new String(result, UTF_8);' or 'String str = new String(result, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProcessorLight.java:89: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 dispatches != null && state != SocketState.CLOSED);
+    [javac]                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(dispatches != null && state != SocketState.CLOSED));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProcessorLight.java:96: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (dispatches) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProcessorLight.java:107: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (dispatches) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProcessorLight.java:122: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (dispatches) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SocketWrapperBase.java:193: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         return --keepAliveLeft;
+    [javac]                ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SocketProcessorBase.java:40: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProtocol.java:1084: warning: [UnsynchronizedOverridesSynchronized] Unsynchronized method push overrides synchronized method in SynchronizedStack
+    [javac]         public boolean push(Processor processor) {
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/UnsynchronizedOverridesSynchronized)
+    [javac]   Did you mean 'public synchronized boolean push(Processor processor) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/AbstractProtocol.java:1101: warning: [UnsynchronizedOverridesSynchronized] Unsynchronized method pop overrides synchronized method in SynchronizedStack
+    [javac]         public Processor pop() {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/UnsynchronizedOverridesSynchronized)
+    [javac]   Did you mean 'public synchronized Processor pop() {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/NioEndpoint.java:722: warning: [ShortCircuitBoolean] Prefer the short-circuiting boolean operators && and || to & and |.
+    [javac]                 if ( keyCount == 0 ) hasEvents = (hasEvents | events());
+    [javac]                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ShortCircuitBoolean)
+    [javac]   Did you mean 'if ( keyCount == 0 ) hasEvents = (hasEvents || events());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SSLImplementation.java:56: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             return (SSLImplementation) clazz.newInstance();
+    [javac]                                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'return (SSLImplementation) clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/ajp/AjpProcessor.java:1038: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (waitingForBodyMessage || first && request.getContentLengthLong() > 0) {
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (waitingForBodyMessage || (first && request.getContentLengthLong() > 0)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http11/filters/ChunkedInputFilter.java:184: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]             if (readChunk != handler.getByteBuffer()) {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(readChunk, handler.getByteBuffer())) {' or 'if (!readChunk.equals(handler.getByteBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http11/filters/ChunkedInputFilter.java:190: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]             if (readChunk != handler.getByteBuffer()) {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(readChunk, handler.getByteBuffer())) {' or 'if (!readChunk.equals(handler.getByteBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HpackDecoder.java:403: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                 headerCount ++;
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HpackDecoder.java:407: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]             headerCount ++;
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HpackDecoder.java:413: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         headerSize += inc;
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:499: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         contentLengthReceived += payloadSize;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:856: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (inBuffer) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:906: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (inBuffer) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:944: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized (inBuffer) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:981: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized (inBuffer) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Stream.java:990: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized (inBuffer) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:470: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:517: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:531: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:591: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]                     headerFrameBuffers.getHeader()[4] += FLAG_END_OF_HEADERS;
+    [javac]                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'headerFrameBuffers.getHeader()[4] = (byte) (headerFrameBuffers.getHeader()[4] + FLAG_END_OF_HEADERS);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:640: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (socketWrapper) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:681: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:705: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (socketWrapper) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:783: warning: [UnsynchronizedOverridesSynchronized] Unsynchronized method incrementWindowSize overrides synchronized method in AbstractStream
+    [javac]     protected void incrementWindowSize(int increment) throws Http2Exception {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/UnsynchronizedOverridesSynchronized)
+    [javac]   Did you mean 'protected synchronized void incrementWindowSize(int increment) throws Http2Exception {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:962: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]             newStreamsSinceLastPrune++;
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:1440: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (socketWrapper) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:1511: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized (socketWrapper) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/Http2UpgradeHandler.java:1547: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized (socketWrapper) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/StreamStateMachine.java:211: warning: [ImmutableEnumChecker] enums should only have immutable fields, 'Set' is mutable
+    [javac]         private final Set<FrameType> frameTypesPermitted = new HashSet<>();
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/FrameType.java:42: warning: [ImmutableEnumChecker] enums should only have immutable fields, the declaration of type 'java.util.function.IntPredicate' is not annotated @Immutable
+    [javac]     private final IntPredicate payloadSizeValidator;
+    [javac]                                ^
+    [javac]     (see http://errorprone.info/bugpattern/ImmutableEnumChecker)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/FrameType.java:63: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (streamId == 0 && !streamZero || streamId != 0 && !streamNonZero) {
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((streamId == 0 && !streamZero) || streamId != 0 && !streamNonZero) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/FrameType.java:63: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (streamId == 0 && !streamZero || streamId != 0 && !streamNonZero) {
+    [javac]                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (streamId == 0 && !streamZero || (streamId != 0 && !streamNonZero)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HPackHuffman.java:473: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]                 currentBufferByte |= ((code.value & 0xFF) << 8 - (code.length + bytePos));
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'currentBufferByte = (byte) (currentBufferByte | ((code.value & 0xFF) << 8 - (code.length + bytePos)));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HPackHuffman.java:473: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 currentBufferByte |= ((code.value & 0xFF) << 8 - (code.length + bytePos));
+    [javac]                                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'currentBufferByte |= ((code.value & 0xFF) << (8 - (code.length + bytePos)));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HPackHuffman.java:486: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]                         currentBufferByte |= (val >> (rem - remainingInByte));
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'currentBufferByte = (byte) (currentBufferByte | (val >> (rem - remainingInByte)));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/coyote/http2/HPackHuffman.java:488: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]                         currentBufferByte |= (val << (remainingInByte - rem));
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'currentBufferByte = (byte) (currentBufferByte | (val << (remainingInByte - rem)));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/ValueExpressionLiteral.java:105: warning: [NonOverridingEquals] equals method doesn't override Object.equals; if this is a type-specific helper for a method that does override Object.equals, either inline it into the callers or rename it to avoid ambiguity
+    [javac]     public boolean equals(ValueExpressionLiteral ve) {
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NonOverridingEquals)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/lang/ExpressionBuilder.java:226: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (m.isVarArgs() && inputParameterCount < methodParameterCount - 1 ||
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((m.isVarArgs() && inputParameterCount < methodParameterCount - 1) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/lang/ExpressionBuilder.java:227: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     !m.isVarArgs() && inputParameterCount != methodParameterCount) {
+    [javac]                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(!m.isVarArgs() && inputParameterCount != methodParameterCount)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/SimpleCharStream.java:316: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]     this(encoding == null ? new java.io.InputStreamReader(dstream) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'this(encoding == null ? new java.io.InputStreamReader(dstream, UTF_8) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);' or 'this(encoding == null ? new java.io.InputStreamReader(dstream, Charset.defaultCharset()) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/SimpleCharStream.java:323: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]     this(new java.io.InputStreamReader(dstream), startline, startcolumn, buffersize);
+    [javac]          ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'this(new java.io.InputStreamReader(dstream, UTF_8), startline, startcolumn, buffersize);' or 'this(new java.io.InputStreamReader(dstream, Charset.defaultCharset()), startline, startcolumn, buffersize);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/SimpleCharStream.java:356: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]     ReInit(encoding == null ? new java.io.InputStreamReader(dstream) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'ReInit(encoding == null ? new java.io.InputStreamReader(dstream, UTF_8) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);' or 'ReInit(encoding == null ? new java.io.InputStreamReader(dstream, Charset.defaultCharset()) : new java.io.InputStreamReader(dstream, encoding), startline, startcolumn, buffersize);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/SimpleCharStream.java:363: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]     ReInit(new java.io.InputStreamReader(dstream), startline, startcolumn, buffersize);
+    [javac]            ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'ReInit(new java.io.InputStreamReader(dstream, UTF_8), startline, startcolumn, buffersize);' or 'ReInit(new java.io.InputStreamReader(dstream, Charset.defaultCharset()), startline, startcolumn, buffersize);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/Token.java:101: warning: [MissingOverride] toString overrides method in Object; expected @Override
+    [javac]   public String toString()
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String toString()'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/AstValue.java:274: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (m.isVarArgs() && paramCount > 1 && (src == null || paramCount > src.length) ||
+    [javac]                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((m.isVarArgs() && paramCount > 1 && (src == null || paramCount > src.length)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/AstValue.java:275: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 !m.isVarArgs() && (paramCount > 0 && src == null ||
+    [javac]                                ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(!m.isVarArgs() && (paramCount > 0 && src == null ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/AstValue.java:275: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 !m.isVarArgs() && (paramCount > 0 && src == null ||
+    [javac]                                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '!m.isVarArgs() && ((paramCount > 0 && src == null) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/AstValue.java:276: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                         src != null && src.length != paramCount)) {
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(src != null && src.length != paramCount))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/el/parser/TokenMgrError.java:125: warning: [MissingOverride] getMessage overrides method in Throwable; expected @Override
+    [javac]   public String getMessage() {
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/MissingOverride)
+    [javac]   Did you mean '@Override public String getMessage() {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagPluginManager.java:126: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 TagPlugin plugin = (TagPlugin) pluginClass.newInstance();
+    [javac]                                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'TagPlugin plugin = (TagPlugin) pluginClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/JspCompilationContext.java:245: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             compiler = (Compiler) Class.forName(className).newInstance();
+    [javac]                                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'compiler = (Compiler) Class.forName(className).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/servlet/JspServletWrapper.java:297: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 target = tagHandlerClass.newInstance();
+    [javac]                                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'target = tagHandlerClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Compiler.java:51: warning: [JavaLangClash] org.apache.jasper.compiler.Compiler clashes with java.lang.Compiler
+    [javac] public abstract class Compiler {
+    [javac]                 ^
+    [javac]   
+    [javac]     (see http://errorprone.info/bugpattern/JavaLangClash)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagFileProcessor.java:305: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (nameFromAttribute != null && alias == null
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((nameFromAttribute != null && alias == null)'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagFileProcessor.java:306: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     || nameFromAttribute == null && alias != null) {
+    [javac]                                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '|| (nameFromAttribute == null && alias != null)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagFileProcessor.java:596: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                         Object tagIns = tagClazz.newInstance();
+    [javac]                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object tagIns = tagClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/JavacErrorDetail.java:221: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         BufferedReader reader = new BufferedReader(new InputStreamReader(s));
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'BufferedReader reader = new BufferedReader(new InputStreamReader(s, UTF_8));' or 'BufferedReader reader = new BufferedReader(new InputStreamReader(s, Charset.defaultCharset()));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/JspC.java:1544: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         PrintWriter log = new PrintWriter(System.out);
+    [javac]                           ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'PrintWriter log = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out, UTF_8)));' or 'PrintWriter log = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out, Charset.defaultCharset())));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/JspC.java:1731: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     webxmlEncoding) : new InputStreamReader(fis);
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'webxmlEncoding) : new InputStreamReader(fis, UTF_8);' or 'webxmlEncoding) : new InputStreamReader(fis, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/JspC.java:1742: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                     webxmlEncoding) : new OutputStreamWriter(fos);
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'webxmlEncoding) : new OutputStreamWriter(fos, UTF_8);' or 'webxmlEncoding) : new OutputStreamWriter(fos, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/ELInterpreterFactory.java:88: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     className).newInstance();
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'className).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/ELParser.java:144: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 prevToken instanceof Char && prevToken.toChar() == '.') {
+    [javac]                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(prevToken instanceof Char && prevToken.toChar() == '.')) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1335: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             } else if ((ch == '$' || ch == '#' && !pageInfo.isDeferredSyntaxAllowedAsLiteral()) &&
+    [javac]                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '} else if ((ch == '$' || (ch == '#' && !pageInfo.isDeferredSyntaxAllowedAsLiteral())) &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1655: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         } else if (bodyType == JAVAX_BODY_CONTENT_PLUGIN) {
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '} else if (JAVAX_BODY_CONTENT_PLUGIN.equals(bodyType)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1665: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 || (bodyType == JAVAX_BODY_CONTENT_PARAM)
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '|| (JAVAX_BODY_CONTENT_PARAM.equals(bodyType))'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1666: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 || (bodyType == JAVAX_BODY_CONTENT_TEMPLATE_TEXT)) {
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '|| (JAVAX_BODY_CONTENT_TEMPLATE_TEXT.equals(bodyType))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1687: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 } else if (bodyType == JAVAX_BODY_CONTENT_PARAM) {
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '} else if (JAVAX_BODY_CONTENT_PARAM.equals(bodyType)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Parser.java:1692: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 } else if (bodyType == JAVAX_BODY_CONTENT_TEMPLATE_TEXT) {
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '} else if (JAVAX_BODY_CONTENT_TEMPLATE_TEXT.equals(bodyType)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagLibraryInfoImpl.java:293: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 tei = (TagExtraInfo) teiClass.newInstance();
+    [javac]                                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'tei = (TagExtraInfo) teiClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/TagLibraryInfoImpl.java:349: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             TagLibraryValidator tlv = (TagLibraryValidator) tlvClass.newInstance();
+    [javac]                                                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'TagLibraryValidator tlv = (TagLibraryValidator) tlvClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Validator.java:996: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (doctypeName == null && doctypeSystem != null
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((doctypeName == null && doctypeSystem != null)'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/compiler/Validator.java:997: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     || doctypeName != null && doctypeSystem == null) {
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '|| (doctypeName != null && doctypeSystem == null)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/runtime/JspRuntimeLibrary.java:787: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 (PropertyEditor)propertyEditorClass.newInstance();
+    [javac]                                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(PropertyEditor)propertyEditorClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/runtime/JspRuntimeLibrary.java:926: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             writer = new OutputStreamWriter(buf);
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'writer = new OutputStreamWriter(buf, UTF_8);' or 'writer = new OutputStreamWriter(buf, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/runtime/TagHandlerPool.java:50: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 result = (TagHandlerPool) c.newInstance();
+    [javac]                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'result = (TagHandlerPool) c.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/jasper/runtime/TagHandlerPool.java:115: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 Tag instance = handlerClass.newInstance();
+    [javac]                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Tag instance = handlerClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/FileHandler.java:317: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 setFilter((Filter) cl.loadClass(filterName).newInstance());
+    [javac]                                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'setFilter((Filter) cl.loadClass(filterName).getDeclaredConstructor().newInstance());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/FileHandler.java:327: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 setFormatter((Formatter) cl.loadClass(formatterName).newInstance());
+    [javac]                                                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'setFormatter((Formatter) cl.loadClass(formatterName).getDeclaredConstructor().newInstance());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/FileHandler.java:388: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]                                        : new OutputStreamWriter(os), false);
+    [javac]                                          ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean ': new OutputStreamWriter(os, UTF_8), false);' or ': new OutputStreamWriter(os, Charset.defaultCharset()), false);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/ClassLoaderLogManager.java:564: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                         (Handler) classLoader.loadClass(handlerClassName).newInstance();
+    [javac]                                                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(Handler) classLoader.loadClass(handlerClassName).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/DateFormatCache.java:181: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]                 synchronized(parent) {
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/logging/DirectJDKLog.java:45: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 Class.forName(SIMPLE_CFG).newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Class.forName(SIMPLE_CFG).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/juli/logging/DirectJDKLog.java:49: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 Formatter fmt=(Formatter)Class.forName(System.getProperty(FORMATTER, SIMPLE_FMT)).newInstance();
+    [javac]                                                                                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Formatter fmt=(Formatter)Class.forName(System.getProperty(FORMATTER, SIMPLE_FMT)).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/naming/factory/BeanFactory.java:148: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 Object bean = beanClass.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object bean = beanClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/naming/factory/EjbFactory.java:47: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 Class.forName(javaxEjbFactoryClassName).newInstance();
+    [javac]                                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Class.forName(javaxEjbFactoryClassName).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/naming/factory/FactoryBase.java:72: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     factory = (ObjectFactory) factoryClass.newInstance();
+    [javac]                                                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'factory = (ObjectFactory) factoryClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/naming/factory/ResourceFactory.java:48: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                         javaxSqlDataSourceFactoryClassName).newInstance();
+    [javac]                                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'javaxSqlDataSourceFactoryClassName).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/naming/factory/ResourceFactory.java:61: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     Class.forName(javaxMailSessionFactoryClassName).newInstance();
+    [javac]                                                                                ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Class.forName(javaxMailSessionFactoryClassName).getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/SimpleInstanceManager.java:36: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return prepareInstance(clazz.newInstance());
+    [javac]                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'InvocationTargetException, NamingException, InstantiationException, NoSuchMethodException {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/SimpleInstanceManager.java:44: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return prepareInstance(clazz.newInstance());
+    [javac]                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'ClassNotFoundException, NoSuchMethodException  {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/SimpleInstanceManager.java:52: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         return prepareInstance(clazz.newInstance());
+    [javac]                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'ClassNotFoundException, NoSuchMethodException  {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/buildutil/SignCode.java:238: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (!signingService.contains("TEST") && !"SIGNED".equals(signingSetStatus) ||
+    [javac]                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((!signingService.contains("TEST") && !"SIGNED".equals(signingSetStatus)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/buildutil/SignCode.java:239: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 signingService.contains("TEST") && !"INITIALIZED".equals(signingSetStatus) ) {
+    [javac]                                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(signingService.contains("TEST") && !"INITIALIZED".equals(signingSetStatus)) ) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/dbcp2/BasicDataSource.java:2156: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     driverToUse = (Driver) driverFromCCL.newInstance();
+    [javac]                                                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'driverToUse = (Driver) driverFromCCL.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.java:474: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 if (p != null && (getTestOnBorrow() || create && getTestOnCreate())) {
+    [javac]                                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (p != null && (getTestOnBorrow() || (create && getTestOnCreate()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/GenericObjectPool.java:586: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (isClosed() || maxIdleSave > -1 && maxIdleSave <= idleObjects.size()) {
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (isClosed() || (maxIdleSave > -1 && maxIdleSave <= idleObjects.size())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.java:608: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             final Object policy = clazz.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'final Object policy = clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/BaseGenericObjectPool.java:1062: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]     private class StatsStore {
+    [javac]             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'private static class StatsStore {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/AbandonedConfig.java:174: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]     private PrintWriter logWriter = new PrintWriter(System.out);
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'private PrintWriter logWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out, UTF_8)));' or 'private PrintWriter logWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out, Charset.defaultCharset())));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/GenericKeyedObjectPool.java:396: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     if (p != null && (getTestOnBorrow() || create && getTestOnCreate())) {
+    [javac]                                                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (p != null && (getTestOnBorrow() || (create && getTestOnCreate()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/GenericKeyedObjectPool.java:526: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (isClosed() || maxIdle > -1 && maxIdle <= idleObjects.size()) {
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (isClosed() || (maxIdle > -1 && maxIdle <= idleObjects.size())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/dbcp/pool2/impl/GenericKeyedObjectPool.java:1448: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]     private class ObjectDeque<S> {
+    [javac]             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'private static class ObjectDeque<S> {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/jni/Error.java:24: warning: [JavaLangClash] org.apache.tomcat.jni.Error clashes with java.lang.Error
+    [javac] public class Error extends Exception {
+    [javac]        ^
+    [javac]   
+    [javac]     (see http://errorprone.info/bugpattern/JavaLangClash)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/jni/Thread.java:24: warning: [JavaLangClash] org.apache.tomcat.jni.Thread clashes with java.lang.Thread
+    [javac] public class Thread {
+    [javac]        ^
+    [javac]   
+    [javac]     (see http://errorprone.info/bugpattern/JavaLangClash)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/ByteBufferUtils.java:47: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]                 Class<?> clazz = Class.forName("sun.misc.Unsafe");
+    [javac]                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'Class<?> clazz = Unsafe.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/buf/UriUtil.java:51: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             byte[] ba = custom.getBytes();
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'byte[] ba = custom.getBytes(UTF_8);' or 'byte[] ba = custom.getBytes(Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/codec/binary/BaseNCodec.java:436: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     (!allowWSPad || (octet != pad) && !isWhiteSpace(octet))) {
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(!allowWSPad || ((octet != pad) && !isWhiteSpace(octet)))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/descriptor/DigesterFactory.java:50: Note: [LiteralClassName] Using Class.forName is unnecessary if the class is available at compile-time.
+    [javac]             jspContext = Class.forName("javax.servlet.jsp.JspContext");
+    [javac]                                       ^
+    [javac]     (see http://errorprone.info/bugpattern/LiteralClassName)
+    [javac]   Did you mean 'jspContext = JspContext.class;'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/digester/ObjectCreateRule.java:117: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]         Object instance = clazz.newInstance();
+    [javac]                                            ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object instance = clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:386: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (version == 0 && !allowedWithoutQuotes.get(c) ||
+    [javac]                              ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((version == 0 && !allowedWithoutQuotes.get(c)) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:387: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                     version == 1 && isHttpSeparator(c)) {
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(version == 1 && isHttpSeparator(c))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:431: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                    (isHttpSeparator((char) bytes[pos]) &&
+    [javac]                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '((isHttpSeparator((char) bytes[pos]) &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:498: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                                 !isV0Separator((char)bytes[pos]) &&
+    [javac]                                                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((version == 0 &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:668: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                  version == 0 && getAllowHttpSepsInV0() && bytes[pos] != '=' &&
+    [javac]                                                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(version == 0 && getAllowHttpSepsInV0() && bytes[pos] != '=' &&'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/LegacyCookieProcessor.java:670: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                  !isName && bytes[pos] == '=' && getAllowEqualsInValue())) {
+    [javac]                                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(!isName && bytes[pos] == '=' && getAllowEqualsInValue()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/fileupload/ByteArrayOutputStream.java:262: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         return new String(toByteArray());
+    [javac]                ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'return new String(toByteArray(), UTF_8);' or 'return new String(toByteArray(), Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/fileupload/disk/DiskFileItem.java:343: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]             return new String(rawdata);
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'return new String(rawdata, UTF_8);' or 'return new String(rawdata, Charset.defaultCharset());'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/parser/HttpParser.java:92: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (i >= 'a' && i <= 'z' || i >= 'A' && i <= 'Z') {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((i >= 'a' && i <= 'z') || i >= 'A' && i <= 'Z') {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/parser/HttpParser.java:92: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]             if (i >= 'a' && i <= 'z' || i >= 'A' && i <= 'Z') {
+    [javac]                                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (i >= 'a' && i <= 'z' || (i >= 'A' && i <= 'Z')) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/http/parser/HttpParser.java:602: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 if (h16Count == 7 || h16Count < 7 && parsedDoubleColon) {
+    [javac]                                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (h16Count == 7 || (h16Count < 7 && parsedDoubleColon)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseAttributeFilter.java:80: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (names) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseAttributeFilter.java:93: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (names) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseAttributeFilter.java:108: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (names) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseAttributeFilter.java:136: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (names) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/modeler/BaseAttributeFilter.java:154: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]         synchronized (names) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/AprEndpoint.java:1086: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                 size++;
+    [javac]                     ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/AprEndpoint.java:1097: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                     size--;
+    [javac]                         ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/AprEndpoint.java:2168: warning: [SynchronizeOnNonFinalField] Synchronizing on non-final fields is not safe: if the field is ever updated, different threads may end up locking on different objects.
+    [javac]             synchronized (socket) {
+    [javac]                          ^
+    [javac]     (see http://errorprone.info/bugpattern/SynchronizeOnNonFinalField)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/Nio2Endpoint.java:880: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                     state.nBytes += nBytes.longValue();
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/Nio2Endpoint.java:949: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                     state.nBytes += nBytes.longValue();
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/TLSClientHelloExtractor.java:217: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (b2 < 3 || b2 == 3 && b3 == 0) {
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (b2 < 3 || (b2 == 3 && b3 == 0)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/TLSClientHelloExtractor.java:277: warning: [NarrowingCompoundAssignment] Compound assignments from int to char hide lossy casts
+    [javac]             toRead -= len;
+    [javac]                    ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'toRead = (char) (toRead - len);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNio2Channel.java:680: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                         if (dst == getBufHandler().getReadBuffer()) {
+    [javac]                                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(dst, getBufHandler().getReadBuffer())) {' or 'if (dst.equals(getBufHandler().getReadBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNio2Channel.java:685: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                         } else if (dst == getAppReadBufHandler().getByteBuffer()) {
+    [javac]                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '} else if (Objects.equals(dst, getAppReadBufHandler().getByteBuffer())) {' or '} else if (dst.equals(getAppReadBufHandler().getByteBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNio2Channel.java:869: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                                     if (dst2 == getBufHandler().getReadBuffer()) {
+    [javac]                                              ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(dst2, getBufHandler().getReadBuffer())) {' or 'if (dst2.equals(getBufHandler().getReadBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNioChannel.java:551: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (dst != getBufHandler().getReadBuffer() && (getAppReadBufHandler() == null
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (!Objects.equals(dst, getBufHandler().getReadBuffer()) && (getAppReadBufHandler() == null' or 'if (!dst.equals(getBufHandler().getReadBuffer()) && (getAppReadBufHandler() == null'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNioChannel.java:552: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                 || dst != getAppReadBufHandler().getByteBuffer())) {
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '|| !Objects.equals(dst, getAppReadBufHandler().getByteBuffer()))) {' or '|| !dst.equals(getAppReadBufHandler().getByteBuffer()))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNioChannel.java:597: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                     if (dst == getBufHandler().getReadBuffer()) {
+    [javac]                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(dst, getBufHandler().getReadBuffer())) {' or 'if (dst.equals(getBufHandler().getReadBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNioChannel.java:601: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]                     } else if (dst == getAppReadBufHandler().getByteBuffer()) {
+    [javac]                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean '} else if (Objects.equals(dst, getAppReadBufHandler().getByteBuffer())) {' or '} else if (dst.equals(getAppReadBufHandler().getByteBuffer())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/SecureNioChannel.java:630: warning: [ReferenceEquality] Comparison using reference equality instead of value equality
+    [javac]         if (src == this.netOutBuffer) {
+    [javac]                 ^
+    [javac]     (see http://errorprone.info/bugpattern/ReferenceEquality)
+    [javac]   Did you mean 'if (Objects.equals(src, this.netOutBuffer)) {' or 'if (src.equals(this.netOutBuffer)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/jsse/JSSEUtil.java:249: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]              Object trustManagerObject = clazz.newInstance();
+    [javac]                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Object trustManagerObject = clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/net/jsse/PEMFile.java:74: warning: [DefaultCharset] Implicit use of the platform default charset, which can result in e.g. non-ASCII characters being silently replaced with '?' in many environments
+    [javac]         try (BufferedReader in = new BufferedReader(new FileReader(filename))) {
+    [javac]                                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/DefaultCharset)
+    [javac]   Did you mean 'try (BufferedReader in = Files.newBufferedReader(Paths.get(filename), UTF_8)) {' or 'try (BufferedReader in = Files.newBufferedReader(Paths.get(filename), Charset.defaultCharset())) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/scan/StandardJarScanner.java:173: warning: [URLEqualsHashCode] Creation of a Set/HashSet/HashMap of java.net.URL. equals() and hashCode() of java.net.URL class make blocking internet connections.
+    [javac]         Set<URL> processedURLs = new HashSet<>();
+    [javac]                                  ^
+    [javac]     (see http://errorprone.info/bugpattern/URLEqualsHashCode)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/util/threads/InlineExecutorService.java:62: warning: [WaitNotInLoop] Because of spurious wakeups, wait(long) must always be called in a loop
+    [javac]             lock.wait(unit.toMillis(timeout));
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/WaitNotInLoop)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsRemoteEndpointImplBase.java:679: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 instance = encoderClazz.newInstance();
+    [javac]                                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'instance = encoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsRemoteEndpointImplBase.java:727: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]             b -= 128;
+    [javac]               ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'b = (byte) (b - 128);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsRemoteEndpointImplBase.java:730: warning: [NarrowingCompoundAssignment] Compound assignments from int to byte hide lossy casts
+    [javac]         b += (rsv << 4);
+    [javac]           ^
+    [javac]     (see http://errorprone.info/bugpattern/NarrowingCompoundAssignment)
+    [javac]   Did you mean 'b = (byte) (b + (rsv << 4));'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsWebSocketContainer.java:133: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 configurator = configuratorClazz.newInstance();
+    [javac]                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'configurator = configuratorClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsWebSocketContainer.java:160: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             pojo = annotatedEndpointClass.newInstance();
+    [javac]                                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'pojo = annotatedEndpointClass.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsWebSocketContainer.java:178: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             endpoint = clazz.newInstance();
+    [javac]                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'endpoint = clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsFrameBase.java:653: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]         payloadWritten += toSkip;
+    [javac]                        ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsFrameBase.java:895: warning: [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    [javac]     private abstract class TerminalTransformation implements Transformation {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassCanBeStatic)
+    [javac]   Did you mean 'private abstract static class TerminalTransformation implements Transformation {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsFrameBase.java:951: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]             payloadWritten += toWrite;
+    [javac]                            ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/WsFrameBase.java:992: warning: [NonAtomicVolatileUpdate] This update of a volatile variable is non-atomic
+    [javac]                 payloadWritten++;
+    [javac]                               ^
+    [javac]     (see http://errorprone.info/bugpattern/NonAtomicVolatileUpdate)
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/PerMessageDeflate.java:228: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                 if (fin && (isServer && !clientContextTakeover ||
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (fin && ((isServer && !clientContextTakeover) ||'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/PerMessageDeflate.java:229: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]                         !isServer && !serverContextTakeover)) {
+    [javac]                                   ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean '(!isServer && !serverContextTakeover))) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/PerMessageDeflate.java:449: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (isServer && !serverContextTakeover || !isServer && !clientContextTakeover) {
+    [javac]                      ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if ((isServer && !serverContextTakeover) || !isServer && !clientContextTakeover) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/PerMessageDeflate.java:449: warning: [OperatorPrecedence] Use grouping parenthesis to make the operator precedence explicit
+    [javac]         if (isServer && !serverContextTakeover || !isServer && !clientContextTakeover) {
+    [javac]                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/OperatorPrecedence)
+    [javac]   Did you mean 'if (isServer && !serverContextTakeover || (!isServer && !clientContextTakeover)) {'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/Util.java:345: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                     instance = decoderClazz.newInstance();
+    [javac]                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'instance = decoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/pojo/PojoMessageHandlerWholeBinary.java:70: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                                 (Binary<?>) decoderClazz.newInstance();
+    [javac]                                                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(Binary<?>) decoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/pojo/PojoMessageHandlerWholeBinary.java:76: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                                 (BinaryStream<?>) decoderClazz.newInstance();
+    [javac]                                                                           ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(BinaryStream<?>) decoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/pojo/PojoMessageHandlerWholeText.java:78: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                         Text<?> decoder = (Text<?>) decoderClazz.newInstance();
+    [javac]                                                                             ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'Text<?> decoder = (Text<?>) decoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/pojo/PojoMessageHandlerWholeText.java:84: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                                 (TextStream<?>) decoderClazz.newInstance();
+    [javac]                                                                         ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(TextStream<?>) decoderClazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/server/DefaultServerEndpointConfigurator.java:36: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]             return clazz.newInstance();
+    [javac]                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'return clazz.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/server/WsServerContainer.java:217: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 configurator = annotation.configurator().newInstance();
+    [javac]                                                                     ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'configurator = annotation.configurator().getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/server/WsServerContainer.java:222: warning: [GetClassOnClass] Calling getClass() on an object of type Class returns the Class object for java.lang.Class; you probably meant to operate on the object directly
+    [javac]                         pojo.getClass().getName()), e);
+    [javac]                                      ^
+    [javac]     (see http://errorprone.info/bugpattern/GetClassOnClass)
+    [javac]   Did you mean 'pojo.getName()), e);' or 'Class.class.getName()), e);'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/server/WsServerContainer.java:419: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                 encoder.newInstance();
+    [javac]                                    ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean 'encoder.getDeclaredConstructor().newInstance();'?
+    [javac] /Users/lramjit/work/tomcat/java/org/apache/tomcat/websocket/server/WsSci.java:75: warning: [ClassNewInstance] Class.newInstance() bypasses exception checking; prefer getDeclaredConstructor().newInstance()
+    [javac]                             (ServerApplicationConfig) clazz.newInstance());
+    [javac]                                                                        ^
+    [javac]     (see http://errorprone.info/bugpattern/ClassNewInstance)
+    [javac]   Did you mean '(ServerApplicationConfig) clazz.getDeclaredConstructor().newInstance());'?
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] 314 warnings
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/http/fileupload/servlet/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/websocket/pojo/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/http/fileupload/disk/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/http/fileupload/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/dbcp/dbcp2/datasources/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/dbcp/dbcp2/cpdsadapter/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/http/fileupload/util/mime/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/http/fileupload/util/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/dbcp/dbcp2/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/websocket/server/package-info.class
+    [javac] Creating empty /Users/lramjit/work/tomcat/output/classes/org/apache/tomcat/util/descriptor/tld/package-info.class
+     [copy] Copying 223 files to /Users/lramjit/work/tomcat/output/classes
+
+build-manifests:
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/manifests
+     [copy] Copying 19 files to /Users/lramjit/work/tomcat/output/manifests
+
+package:
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/annotations-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/servlet-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/jsp-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/el-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/websocket-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/jaspic-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-websocket.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/bin/bootstrap.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/bin/tomcat-juli.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/catalina.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/catalina-tribes.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/catalina-ha.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/catalina-ant.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/catalina-storeconfig.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-api.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-util.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-util-scan.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-coyote.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-jni.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/jasper.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/jasper-el.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-dbcp.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-i18n-es.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-i18n-fr.jar
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/build/lib/tomcat-i18n-ja.jar
+
+build-docs:
+     [copy] Copying 34 files to /Users/lramjit/work/tomcat/output/build/webapps
+     [copy] Copying 5 files to /Users/lramjit/work/tomcat/output/build/webapps
+     [copy] Copying 2 files to /Users/lramjit/work/tomcat/output/build/webapps/docs
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/webapps/docs
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/sample
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/aio.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/aio.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/apr.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/apr.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/balancer-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/balancer-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/building.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/building.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/cgi-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/cgi-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/changelog.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/changelog.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/class-loader-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/class-loader-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/cluster-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/cluster-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/comments.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/comments.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/connectors.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/connectors.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/default-servlet.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/default-servlet.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/deployer-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/deployer-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/developers.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/developers.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/extras.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/extras.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/html-manager-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/html-manager-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/index.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/index.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/introduction.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/introduction.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/jasper-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/jasper-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/jdbc-pool.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/jdbc-pool.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/jndi-datasource-examples-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/jndi-datasource-examples-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/jndi-resources-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/jndi-resources-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/logging.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/logging.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/manager-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/manager-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/maven-jars.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/maven-jars.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/mbeans-descriptors-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/mbeans-descriptors-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/monitoring.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/monitoring.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/proxy-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/proxy-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/realm-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/realm-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/rewrite.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/rewrite.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/security-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/security-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/security-manager-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/security-manager-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/setup.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/setup.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/ssi-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/ssi-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/ssl-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/ssl-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/virtual-hosting-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/virtual-hosting-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/web-socket-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/web-socket-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/windows-auth-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/windows-auth-howto.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/windows-service-howto.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/windows-service-howto.html
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/deployment.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/deployment.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/index.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/index.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/installation.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/installation.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/introduction.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/introduction.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/processes.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/processes.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/appdev/source.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/appdev/source.html
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-admin-apps.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-admin-apps.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-admin-objects.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-admin-objects.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-admin-opers.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-admin-opers.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-default.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-default.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-jdbc-realm.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-jdbc-realm.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-jndi-realm.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-jndi-realm.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/fs-memory-realm.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/fs-memory-realm.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/index.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/index.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/funcspecs/mbean-names.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/funcspecs/mbean-names.html
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs/config
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/ajp.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/ajp.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/automatic-deployment.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/automatic-deployment.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-channel.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-channel.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-deployer.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-deployer.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-interceptor.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-interceptor.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-listener.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-listener.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-manager.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-manager.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-membership.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-membership.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-receiver.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-receiver.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-sender.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-sender.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster-valve.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster-valve.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cluster.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cluster.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/context.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/context.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/cookie-processor.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/cookie-processor.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/credentialhandler.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/credentialhandler.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/engine.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/engine.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/executor.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/executor.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/filter.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/filter.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/globalresources.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/globalresources.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/host.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/host.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/http.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/http.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/http2.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/http2.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/index.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/index.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/jar-scan-filter.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/jar-scan-filter.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/jar-scanner.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/jar-scanner.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/jaspic.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/jaspic.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/listeners.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/listeners.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/loader.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/loader.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/manager.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/manager.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/realm.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/realm.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/resources.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/resources.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/server.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/server.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/service.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/service.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/sessionidgenerator.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/sessionidgenerator.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/systemprops.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/systemprops.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/config/valve.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/config/valve.html
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs/architecture
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/architecture/index.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/architecture/index.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/architecture/overview.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/architecture/overview.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/architecture/requestProcess.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/architecture/requestProcess.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/architecture/startup.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/architecture/startup.html
+     [xslt] Transforming into /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/developers.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/developers.html
+     [xslt] Loading stylesheet /Users/lramjit/work/tomcat/webapps/docs/tomcat-docs.xsl
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/faq.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/faq.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/interceptors.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/interceptors.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/introduction.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/introduction.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/membership.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/membership.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/setup.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/setup.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/status.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/status.html
+     [xslt] Processing /Users/lramjit/work/tomcat/webapps/docs/tribes/transport.xml to /Users/lramjit/work/tomcat/output/build/webapps/docs/tribes/transport.html
+
+build-tomcat-jdbc:
+     [echo] Building Tomcat JDBC pool libraries
+
+prepare:
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/jdbc-pool/build
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/jdbc-pool/classes
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/jdbc-pool/testclasses
+     [copy] Copying 7 files to /Users/lramjit/work/tomcat/output/jdbc-pool
+
+download:
+
+build-src:
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/jdbc-pool/tomcat-jdbc-src.jar
+
+build:
+    [javac] Compiling 33 source files to /Users/lramjit/work/tomcat/output/jdbc-pool/classes
+      [jar] Building jar: /Users/lramjit/work/tomcat/output/jdbc-pool/tomcat-jdbc.jar
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/lib
+
+compile-webapp-examples:
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/webapps/examples/WEB-INF/classes
+    [javac] Compiling 73 source files to /Users/lramjit/work/tomcat/output/build/webapps/examples/WEB-INF/classes
+    [mkdir] Created dir: /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/plugin/applet
+    [javac] Compiling 1 source file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/plugin/applet
+
+deploy:
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/bin
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/bin
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/bin
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/bin
+     [copy] Copying 18 files to /Users/lramjit/work/tomcat/output/build/bin
+     [copy] Copying 10 files to /Users/lramjit/work/tomcat/output/build/conf
+     [copy] Copying 241 files to /Users/lramjit/work/tomcat/output/build/webapps
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/webapps
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/webapps/ROOT
+     [copy] Copying 1 file to /Users/lramjit/work/tomcat/output/build/lib
+
+examples-sources:
+ [txt2html] Converted 1 file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/simpletag
+ [txt2html] Converted 4 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/simpletag
+ [txt2html] Converted 5 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/simpletag
+ [txt2html] Converted 1 file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/jspattribute
+ [txt2html] Converted 4 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/jspattribute
+ [txt2html] Converted 4 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/cal
+ [txt2html] Converted 1 file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsptoserv
+ [txt2html] Converted 1 file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/el
+ [txt2html] Converted 2 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/el
+ [txt2html] Converted 3 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/el
+ [txt2html] Converted 1 file to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/misc
+ [txt2html] Converted 3 files to /Users/lramjit/work/tomcat/output/build/webapps/examples/jsp/jsp2/tagfiles
+ [txt2html] Converted 48 files to /Users/lramjit/work/tomcat/output/build/webapps/examples
+
+BUILD SUCCESSFUL
+Total time: 22 seconds
