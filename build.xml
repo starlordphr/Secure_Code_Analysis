@@ -1,0 +1,27 @@
+<!--This is a sample Ant file that runs all of the unit tests in the tests folder by compiling them
+to an directory named output. Running "ant compile" in the top level directory will show the Errorprone
+warnings. "ant clean" will allow the tests to be re-run.
+-->
+
+<project>
+<target name="compile">
+<mkdir dir="output"/>
+<javac srcdir="tests" 
+       destdir="output/"
+       includeantruntime="true"
+       compiler="com.google.errorprone.ErrorProneAntCompilerAdapter">
+      <compilerclasspath>
+      <pathelement location="lib/error_prone_ant-2.0.20-SNAPSHOT.jar">
+      </pathelement>
+      </compilerclasspath>
+      <compilerarg value="-XepAllErrorsAsWarnings"/>
+      <compilerarg value="-Xep:NamedParameters:OFF"/>
+      <compilerarg line="-Xmaxwarns 10000"/> 
+      </javac>
+</target>
+
+<target name="clean">
+<delete dir="output/"/>
+</target>
+
+</project>
