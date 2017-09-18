@@ -1,6 +1,4 @@
-# CS230-Secure_Code_Analysis
-Mini Project for CS230 (Spring 17) UCLA.
-
+# Secure Code Analysis
 # Problem Description:
 To implement a plugin for statically checking if a program has followed secure coding techniques.
 
